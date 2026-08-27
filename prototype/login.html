@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in · RestrOS</title>
+<script>try{var t=JSON.parse(localStorage.getItem('restros:theme'));if(t&&t!=='system')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+</head>
+<body>
+<main class="auth">
+  <div class="auth-form">
+    <div class="stack gap-6">
+      <a class="logo" href="index.html"><span class="logo-mark">R</span>Restr<em>OS</em></a>
+
+      <div class="stack gap-2">
+        <h1 class="t-2xl">Welcome back</h1>
+        <p class="muted t-sm">Sign in to your workspace. Staff on the counter use a 4-digit PIN instead.</p>
+      </div>
+
+      <div class="segmented full" id="authMode" role="group" aria-label="Sign-in method">
+        <button class="grow" aria-selected="true" data-mode="email">Email</button>
+        <button class="grow" aria-selected="false" data-mode="pin">POS PIN</button>
+      </div>
+
+      <form class="stack gap-4" id="loginForm" novalidate>
+        <div id="emailFields" class="stack gap-4">
+          <div class="field">
+            <label class="label" for="workspace">Workspace</label>
+            <div class="input-group">
+              <svg class="icon"><use href="assets/icons/sprite.svg#i-building"></use></svg>
+              <input class="input" id="workspace" value="adda-khana" autocomplete="organization">
+              <span class="input-affix">.restros.in</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label" for="email">Email</label>
+            <div class="input-group">
+              <svg class="icon"><use href="assets/icons/sprite.svg#i-mail"></use></svg>
+              <input class="input" id="email" type="email" value="anupam@addakhana.in" autocomplete="username">
+            </div>
+          </div>
+          <div class="field">
+            <div class="row between">
+              <label class="label" for="password">Password</label>
+              <a class="t-xs" href="#">Forgot?</a>
+            </div>
+            <div class="input-group">
+              <svg class="icon"><use href="assets/icons/sprite.svg#i-lock"></use></svg>
+              <input class="input" id="password" type="password" value="demo-password" autocomplete="current-password">
+              <button class="btn btn-ghost btn-icon btn-sm" type="button" id="peek"
+                      style="position:absolute;right:4px" aria-label="Show password">
+                <svg class="icon"><use href="assets/icons/sprite.svg#i-eye"></use></svg>
+              </button>
+            </div>
+          </div>
+          <label class="check"><input type="checkbox" checked> Keep me signed in on this device</label>
+        </div>
+
+        <div id="pinFields" class="stack gap-4 hide">
+          <div class="field">
+            <label class="label" for="pin">4-digit POS PIN</label>
+            <input class="input input-lg mono center" id="pin" inputmode="numeric" maxlength="4"
+                   placeholder="••••" style="letter-spacing:.6em;font-size:var(--text-xl)">
+            <span class="hint">Counter staff sign in with a PIN tied to their role. No email needed.</span>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-lg btn-block" type="submit">
+          Sign in
+          <svg class="icon"><use href="assets/icons/sprite.svg#i-arrow-right"></use></svg>
+        </button>
+      </form>
+
+      <div class="row gap-3">
+        <span class="divider grow"></span><span class="t-xs faint">or</span><span class="divider grow"></span>
+      </div>
+
+      <button class="btn btn-secondary btn-block" id="ssoBtn">
+        <svg class="icon"><use href="assets/icons/sprite.svg#i-shield"></use></svg>
+        Continue with SSO
+      </button>
+
+      <p class="t-sm muted center">
+        New to RestrOS? <a href="signup.html">Start a free trial</a>
+      </p>
+
+      <div class="alert alert-info">
+        <svg class="icon"><use href="assets/icons/sprite.svg#i-info"></use></svg>
+        <div class="t-xs"><strong>Prototype</strong>Credentials are pre-filled — any submit takes you
+          straight to the console.</div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="auth-art">
+    <div class="stack gap-4" style="max-width:44ch">
+      <span class="badge badge-lg" style="background:rgba(255,255,255,.15);color:inherit;width:fit-content">
+        Cafe Adda Khana · Kolkata
+      </span>
+      <p class="t-2xl display" style="line-height:1.15">
+        “The card on the wall had four prices written in pen. Now the counter, the kitchen and
+        Swiggy all agree.”
+      </p>
+      <div class="row gap-3 mt-4">
+        <span class="avatar avatar-lg" style="background:rgba(255,255,255,.2);color:inherit">AM</span>
+        <div class="stack" style="gap:0">
+          <b class="t-sm">Anupam Mondal</b>
+          <span class="t-xs" style="opacity:.7">Owner, 2 outlets</span>
+        </div>
+      </div>
+      <div class="divider" style="background:rgba(255,255,255,.2);margin-block:var(--space-6)"></div>
+      <div class="row gap-8">
+        <div class="stack" style="gap:0">
+          <b class="display t-xl">1,240</b><span class="t-xs" style="opacity:.7">outlets</span>
+        </div>
+        <div class="stack" style="gap:0">
+          <b class="display t-xl">₹94Cr</b><span class="t-xs" style="opacity:.7">processed in 2026</span>
+        </div>
+        <div class="stack" style="gap:0">
+          <b class="display t-xl">99.98%</b><span class="t-xs" style="opacity:.7">uptime</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<script type="module">
+  import { $, $$, ready, toast, BASE } from './assets/js/core.js';
+  ready(() => {
+    $$('#authMode button').forEach((b) => b.addEventListener('click', () => {
+      $$('#authMode button').forEach((x) => x.setAttribute('aria-selected', String(x === b)));
+      $('#emailFields').classList.toggle('hide', b.dataset.mode !== 'email');
+      $('#pinFields').classList.toggle('hide', b.dataset.mode !== 'pin');
+    }));
+    $('#peek').addEventListener('click', () => {
+      const p = $('#password');
+      p.type = p.type === 'password' ? 'text' : 'password';
+    });
+    $('#ssoBtn').addEventListener('click', () => toast('SSO / SAML is an Enterprise feature', { icon: 'shield' }));
+    $('#loginForm').addEventListener('submit', (ev) => {
+      ev.preventDefault();
+      toast('Signed in — opening the console', { type: 'success' });
+      setTimeout(() => { location.href = new URL('app/dashboard.html', BASE).href; }, 700);
+    });
+  });
+</script>
+</body>
+</html>

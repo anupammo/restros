@@ -1,0 +1,63 @@
+name: Deploy to GitHub Pages
+
+# Publishes the repository as a static site so the prototype can be reviewed
+# in a browser. The prototype is pure HTML/CSS/JS with no build step, so the
+# "build" job only validates and packages — nothing is compiled.
+#
+# Site root  → https://<user>.github.io/<repo>/
+# Prototype  → https://<user>.github.io/<repo>/prototype/
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:        # lets you redeploy from the Actions tab by hand
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never let two deploys race; queue instead of cancelling so a green build
+# always reaches the site.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Same checks as local: every JS module parses, every JSON file parses,
+      # every stylesheet/script path resolves, every icon reference exists.
+      # A broken prototype never reaches the published URL.
+      - name: Validate prototype
+        run: node --experimental-vm-modules tools/check.mjs
+
+      # enablement:true turns Pages on via the API if it has never been enabled,
+      # so the first push is usually all it takes. If your org blocks that, flip
+      # Settings → Pages → Source to "GitHub Actions" once and re-run.
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      # Uploads the repo root (minus .git and .github), so both the prototype
+      # and the docs/ folder are reachable from the published site.
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

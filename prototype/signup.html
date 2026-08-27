@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start your trial · RestrOS</title>
+<script>try{var t=JSON.parse(localStorage.getItem('restros:theme'));if(t&&t!=='system')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+</head>
+<!--
+  Tenant provisioning, shown as a four-step wizard. This is the multi-tenant
+  onboarding path: workspace → outlet → menu import → team. Each step maps to a
+  real server action in docs/ARCHITECTURE.md § Tenant provisioning.
+-->
+<body>
+<main class="auth">
+  <div class="auth-form">
+    <div class="stack gap-6">
+      <a class="logo" href="index.html"><span class="logo-mark">R</span>Restr<em>OS</em></a>
+
+      <div class="stack gap-3">
+        <div class="row gap-2" id="steps"></div>
+        <div class="progress"><span id="wizardBar" style="width:25%"></span></div>
+      </div>
+
+      <div id="wizardBody"></div>
+
+      <div class="row gap-3">
+        <button class="btn btn-secondary" id="wizBack" disabled>Back</button>
+        <button class="btn btn-primary grow" id="wizNext">Continue</button>
+      </div>
+
+      <p class="t-xs faint center">14-day trial on Starter. No card required. Cancel any time.</p>
+    </div>
+  </div>
+
+  <aside class="auth-art">
+    <div class="stack gap-6" style="max-width:44ch">
+      <h2 class="display t-3xl" style="line-height:1.05">Live service in about<br>twenty minutes.</h2>
+      <div class="stack gap-4">
+        <div class="row gap-3">
+          <span class="avatar" style="background:rgba(255,255,255,.18);color:inherit">1</span>
+          <div class="stack" style="gap:0"><b class="t-sm">Create the workspace</b>
+            <span class="t-xs" style="opacity:.72">Your own isolated tenant, provisioned in seconds.</span></div>
+        </div>
+        <div class="row gap-3">
+          <span class="avatar" style="background:rgba(255,255,255,.18);color:inherit">2</span>
+          <div class="stack" style="gap:0"><b class="t-sm">Add your first outlet</b>
+            <span class="t-xs" style="opacity:.72">Address, GSTIN, hours and the business-day rollover.</span></div>
+        </div>
+        <div class="row gap-3">
+          <span class="avatar" style="background:rgba(255,255,255,.18);color:inherit">3</span>
+          <div class="stack" style="gap:0"><b class="t-sm">Bring your menu</b>
+            <span class="t-xs" style="opacity:.72">Photograph the printed card, upload a CSV, or start from a template.</span></div>
+        </div>
+        <div class="row gap-3">
+          <span class="avatar" style="background:rgba(255,255,255,.18);color:inherit">4</span>
+          <div class="stack" style="gap:0"><b class="t-sm">Invite the team</b>
+            <span class="t-xs" style="opacity:.72">Roles and POS PINs, so nobody shares a login.</span></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<script type="module">
+  import { $, esc, icon, ready, toast, BASE } from './assets/js/core.js';
+
+  const STEPS = [
+    {
+      title: 'Create your workspace',
+      sub: 'This becomes your tenant — isolated data, its own subdomain.',
+      body: `
+        <div class="field">
+          <label class="label" for="biz">Restaurant name<span class="req">*</span></label>
+          <input class="input" id="biz" value="Cafe Adda Khana" placeholder="e.g. Cafe Adda Khana">
+        </div>
+        <div class="field">
+          <label class="label" for="slug">Workspace address</label>
+          <div class="input-group">
+            <input class="input" id="slug" value="adda-khana">
+            <span class="input-affix">.restros.in</span>
+          </div>
+          <span class="hint">Staff sign in here. You can point a custom domain at it later.</span>
+        </div>
+        <div class="field">
+          <label class="label" for="owner">Your email<span class="req">*</span></label>
+          <input class="input" id="owner" type="email" value="anupam@addakhana.in">
+        </div>`,
+    },
+    {
+      title: 'Add your first outlet',
+      sub: 'You can add more outlets later — the plan sets how many.',
+      body: `
+        <div class="field">
+          <label class="label" for="outlet">Outlet name<span class="req">*</span></label>
+          <input class="input" id="outlet" value="Shyambazar">
+        </div>
+        <div class="field">
+          <label class="label" for="addr">Address</label>
+          <textarea class="textarea" id="addr">12A, Bidhan Sarani, Shyambazar, Kolkata 700004</textarea>
+        </div>
+        <div class="grid-2 gap-3">
+          <div class="field"><label class="label" for="gst">GSTIN</label>
+            <input class="input mono" id="gst" value="19ABCDE1234F1Z5"></div>
+          <div class="field"><label class="label" for="seats2">Seats</label>
+            <input class="input num" id="seats2" type="number" value="48"></div>
+        </div>
+        <div class="grid-2 gap-3">
+          <div class="field"><label class="label" for="o1">Opens</label><input class="input" id="o1" type="time" value="11:00"></div>
+          <div class="field"><label class="label" for="o2">Closes</label><input class="input" id="o2" type="time" value="23:00"></div>
+        </div>`,
+    },
+    {
+      title: 'Bring your menu',
+      sub: 'However it exists today — we will meet it there.',
+      body: `
+        <div class="stack gap-3">
+          <button class="card card-pad row gap-4" style="text-align:left;width:100%" data-src="photo">
+            <span class="feature-ico">${icon('image')}</span>
+            <span class="stack grow" style="gap:2px">
+              <b class="t-sm">Photograph the printed card</b>
+              <span class="t-xs dim">We read items, prices and portions — blanks stay flagged, not guessed.</span>
+            </span>
+            <span class="badge badge-accent">Recommended</span>
+          </button>
+          <button class="card card-pad row gap-4" style="text-align:left;width:100%" data-src="csv">
+            <span class="feature-ico">${icon('upload')}</span>
+            <span class="stack grow" style="gap:2px">
+              <b class="t-sm">Upload a CSV or Excel sheet</b>
+              <span class="t-xs dim">Map your columns once; we remember the mapping.</span>
+            </span>
+          </button>
+          <button class="card card-pad row gap-4" style="text-align:left;width:100%" data-src="template">
+            <span class="feature-ico">${icon('menu-book')}</span>
+            <span class="stack grow" style="gap:2px">
+              <b class="t-sm">Start from a template</b>
+              <span class="t-xs dim">Bengali–Chinese, North Indian, cafe, QSR.</span>
+            </span>
+          </button>
+        </div>
+        <div class="alert alert-success mt-4">${icon('check-circle')}
+          <div><strong>75 items read from your card</strong>
+          <span class="t-xs">12 categories · 11 items had no printed price and are flagged for you.</span></div>
+        </div>`,
+    },
+    {
+      title: 'Invite your team',
+      sub: 'Everyone gets a role. Counter staff also get a 4-digit PIN.',
+      body: `
+        <div class="stack gap-3">
+          ${[['Debjani Roy', 'debjani@addakhana.in', 'Manager'],
+             ['Riya Sen', 'riya@addakhana.in', 'Waiter'],
+             ['Babu-da', 'kitchen1@addakhana.in', 'Kitchen']].map(([n, e, r]) => `
+            <div class="row gap-3 card card-pad" style="padding:var(--space-3)">
+              <span class="avatar">${esc(n.split(' ').map((w) => w[0]).join('').slice(0, 2).toUpperCase())}</span>
+              <span class="stack grow" style="gap:0;min-width:0">
+                <b class="t-sm">${esc(n)}</b><span class="t-2xs faint truncate">${esc(e)}</span>
+              </span>
+              <span class="badge badge-brand">${esc(r)}</span>
+              <button class="btn btn-ghost btn-icon btn-sm" aria-label="Remove">${icon('x', 'icon-sm')}</button>
+            </div>`).join('')}
+          <button class="btn btn-secondary btn-block">${icon('plus', 'icon-sm')}Invite someone else</button>
+        </div>
+        <div class="alert mt-4">${icon('shield')}
+          <div class="t-xs"><strong>Least privilege by default</strong>
+          Only the Owner can change billing or publish a menu version.</div></div>`,
+    },
+  ];
+
+  let step = 0;
+
+  function render() {
+    $('#steps').innerHTML = STEPS.map((s, i) => `
+      <span class="badge ${i < step ? 'badge-success' : i === step ? 'badge-brand' : ''}">
+        ${i < step ? icon('check', 'icon-sm') : String(i + 1)} ${esc(s.title.split(' ')[0])}
+      </span>`).join('');
+    $('#wizardBar').style.width = `${((step + 1) / STEPS.length) * 100}%`;
+    $('#wizardBody').innerHTML = `
+      <div class="stack gap-4">
+        <div class="stack gap-1">
+          <h1 class="t-xl">${esc(STEPS[step].title)}</h1>
+          <p class="muted t-sm">${esc(STEPS[step].sub)}</p>
+        </div>
+        ${STEPS[step].body}
+      </div>`;
+    $('#wizBack').disabled = step === 0;
+    $('#wizNext').textContent = step === STEPS.length - 1 ? 'Finish and open the console' : 'Continue';
+  }
+
+  ready(() => {
+    render();
+    $('#wizBack').addEventListener('click', () => { step = Math.max(0, step - 1); render(); });
+    $('#wizNext').addEventListener('click', () => {
+      if (step < STEPS.length - 1) { step++; render(); return; }
+      toast('Workspace provisioned — opening your console', { type: 'success' });
+      setTimeout(() => { location.href = new URL('app/dashboard.html', BASE).href; }, 900);
+    });
+    document.addEventListener('click', (ev) => {
+      const card = ev.target.closest('[data-src]');
+      if (card) toast(`Menu import via ${card.dataset.src} is stubbed in the prototype`, { icon: 'upload' });
+    });
+  });
+</script>
+</body>
+</html>

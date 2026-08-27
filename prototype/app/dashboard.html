@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard · RestrOS</title>
+<meta name="description" content="RestrOS console — today's service at a glance.">
+<script>try{var t=JSON.parse(localStorage.getItem('restros:theme'));if(t&&t!=='system')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/app.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="app" id="app">
+  <div class="app-col">
+    <main class="app-main" id="main">
+      <div class="page-head">
+        <div>
+          <h2>Good evening, Anupam</h2>
+          <p>Wednesday 27 August 2026 · service is live · 16 tickets on the pass</p>
+        </div>
+        <div class="page-actions">
+          <div class="btn-group" role="group" aria-label="Date range">
+            <button class="btn" aria-pressed="true">Today</button>
+            <button class="btn">7d</button>
+            <button class="btn">30d</button>
+          </div>
+          <button class="btn btn-secondary btn-sm"><svg class="icon"><use href="../assets/icons/sprite.svg#i-download"></use></svg>Export</button>
+          <a class="btn btn-primary btn-sm" href="pos.html"><svg class="icon"><use href="../assets/icons/sprite.svg#i-plus"></use></svg>New order</a>
+        </div>
+      </div>
+
+      <div id="dashboard" class="stack gap-4">
+        <div class="bento">
+          <div class="col-3 stat"><div class="skeleton" style="height:74px"></div></div>
+          <div class="col-3 stat"><div class="skeleton" style="height:74px"></div></div>
+          <div class="col-3 stat"><div class="skeleton" style="height:74px"></div></div>
+          <div class="col-3 stat"><div class="skeleton" style="height:74px"></div></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="../assets/js/dashboard.js"></script>
+</body>
+</html>

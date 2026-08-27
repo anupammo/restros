@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System · RestrOS</title>
+<meta name="description" content="The RestrOS design system: tokens, type, colour, icons and the component library.">
+<script>try{var t=JSON.parse(localStorage.getItem('restros:theme'));if(t&&t!=='system')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="site-nav">
+  <a class="logo" href="index.html"><span class="logo-mark">R</span>Restr<em>OS</em></a>
+  <span class="badge badge-brand">Design system v1.0</span>
+  <span class="grow"></span>
+  <a class="btn btn-ghost btn-sm hide-sm" href="app/dashboard.html">Console</a>
+  <button class="btn btn-ghost btn-icon btn-sm" id="themeToggle" aria-label="Switch theme">
+    <svg class="icon"><use href="assets/icons/sprite.svg#i-moon"></use></svg>
+  </button>
+</nav>
+
+<main id="main" class="container" style="padding-block:var(--space-10) var(--space-24);max-width:1180px">
+
+  <header class="stack gap-4 mb-16">
+    <span class="eyebrow">Foundations</span>
+    <h1 class="display t-4xl">The RestrOS design system</h1>
+    <p class="lede">
+      Two audiences with opposite needs. Operators want density, speed and zero ambiguity under
+      pressure. Guests want warmth and a menu that reads like the restaurant. One token layer serves
+      both by changing values, never structure.
+    </p>
+    <div class="row gap-2 wrap">
+      <span class="badge badge-outline">OKLCH colour</span>
+      <span class="badge badge-outline">Fluid type</span>
+      <span class="badge badge-outline">Container queries</span>
+      <span class="badge badge-outline">Dark / light / system</span>
+      <span class="badge badge-outline">WCAG 2.2 AA</span>
+      <span class="badge badge-outline">Zero runtime dependencies</span>
+    </div>
+  </header>
+
+  <!-- ── principles ────────────────────────────────────────────────────── -->
+  <section class="mb-16">
+    <h2 class="mb-6">Principles</h2>
+    <div class="grid-auto gap-4" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+      <div class="card card-pad stack gap-2">
+        <span class="feature-ico"><svg class="icon"><use href="assets/icons/sprite.svg#i-zap"></use></svg></span>
+        <h4>Speed is the feature</h4>
+        <p class="t-sm muted">A cashier at 20:15 does not read; they recognise. Consistent position,
+          consistent colour, ≥44px targets, and never a modal in the ordering path.</p>
+      </div>
+      <div class="card card-pad stack gap-2">
+        <span class="feature-ico"><svg class="icon"><use href="assets/icons/sprite.svg#i-eye"></use></svg></span>
+        <h4>State is visible, not implied</h4>
+        <p class="t-sm muted">An item with no price says “Needs price”. A late ticket turns red. We show
+          the awkward state rather than hiding it behind an empty cell.</p>
+      </div>
+      <div class="card card-pad stack gap-2">
+        <span class="feature-ico"><svg class="icon"><use href="assets/icons/sprite.svg#i-palette"></use></svg></span>
+        <h4>Brand belongs to the guest</h4>
+        <p class="t-sm muted">Tenant colours drive the QR menu, bills and receipts. The operator console
+          stays neutral so staff muscle memory transfers between outlets.</p>
+      </div>
+      <div class="card card-pad stack gap-2">
+        <span class="feature-ico"><svg class="icon"><use href="assets/icons/sprite.svg#i-shield"></use></svg></span>
+        <h4>Colour never carries meaning alone</h4>
+        <p class="t-sm muted">Every status pairs colour with a label or icon. Kitchens have bad screens
+          and eight percent of men cannot separate red from green.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── colour ────────────────────────────────────────────────────────── -->
+  <section class="mb-16">
+    <h2 class="mb-2">Colour</h2>
+    <p class="lede mb-6">
+      Authored in OKLCH so a ramp step is the same perceived step at every hue, and the dark theme is
+      a lightness inversion rather than a second hand-tuned palette. Basil and Chilli are lifted
+      straight from the Cafe Adda Khana menu card.
+    </p>
+    <div id="ramps" class="stack gap-6"></div>
+
+    <h3 class="mt-10 mb-4">Semantic tokens</h3>
+    <p class="t-sm muted mb-4">Components only ever consume these. Swapping a theme swaps this layer.</p>
+    <div id="semantics" class="grid-auto gap-3" style="grid-template-columns:repeat(auto-fill,minmax(190px,1fr))"></div>
+
+    <h3 class="mt-10 mb-4">Status &amp; dietary</h3>
+    <div class="row gap-3 wrap">
+      <span class="badge badge-lg badge-success badge-dot">Paid</span>
+      <span class="badge badge-lg badge-warning badge-dot">Preparing</span>
+      <span class="badge badge-lg badge-danger badge-dot">Void</span>
+      <span class="badge badge-lg badge-info badge-dot">New</span>
+      <span class="badge badge-lg badge-brand badge-dot">Served</span>
+      <span class="badge badge-lg badge-outline">Outline</span>
+      <span class="chip"><span class="diet diet-veg"></span> Vegetarian</span>
+      <span class="chip"><span class="diet"></span> Non-vegetarian</span>
+    </div>
+  </section>
+
+  <!-- ── typography ────────────────────────────────────────────────────── -->
+  <section class="mb-16">
+    <h2 class="mb-2">Typography</h2>
+    <p class="lede mb-6">
+      Three faces with distinct jobs. <b>Bricolage Grotesque</b> for display and numbers — it has the
+      condensed energy of a hand-painted menu board. <b>Inter</b> for interface text. <b>JetBrains
+      Mono</b> for order IDs, KOT numbers and anything a human reads aloud to another human.
+    </p>
+
+    <div class="card card-pad stack gap-5 mb-6">
+      <div class="stack gap-1">
+        <span class="eyebrow">Display · Bricolage Grotesque 800</span>
+        <span class="display t-4xl">Chicken Biriyani ₹110</span>
+      </div>
+      <div class="divider"></div>
+      <div class="stack gap-1">
+        <span class="eyebrow">Body · Inter 400</span>
+        <p class="t-md" style="max-width:60ch">Every plate comes with a story and a cup of cha. The
+          kitchen fires eight tickets at once and the pass still reads clean from three metres away.</p>
+      </div>
+      <div class="divider"></div>
+      <div class="stack gap-1">
+        <span class="eyebrow">Mono · JetBrains Mono 600 · tabular</span>
+        <span class="mono num t-lg">ORD-2497 · K0497 · ₹1,265.00</span>
+      </div>
+    </div>
+
+    <div id="typeScale"></div>
+  </section>
+
+  <!-- ── space, radius, elevation ──────────────────────────────────────── -->
+  <section class="mb-16">
+    <h2 class="mb-6">Space, shape and elevation</h2>
+    <div class="grid-2 gap-8">
+      <div>
+        <h4 class="mb-3">Spacing — 4px base</h4>
+        <div id="spaceScale" class="stack gap-2"></div>
+      </div>
+      <div>
+        <h4 class="mb-3">Radius</h4>
+        <div class="row gap-3 wrap mb-8" id="radiusScale"></div>
+        <h4 class="mb-3">Elevation</h4>
+        <div class="row gap-4 wrap" id="shadowScale"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── motion ────────────────────────────────────────────────────────── -->
+  <section class="mb-16">
+    <h2 class="mb-2">Motion</h2>
+    <p class="lede mb-6">
+      Two curves. <code>--ease-spring</code> for anything that moves through space; <code>--ease-out</code>
+      for anything that only fades or shifts colour. Everything collapses to 1ms under
+      <code>prefers-reduced-motion</code>.
+    </p>
+    <div class="card card-pad">
+      <div class="spec"><b class="t-sm">--dur-fast · 140ms</b><span class="t-sm muted">Hover, colour, focus ring</span></div>
+      <div class="spec"><b class="t-sm">--dur-base · 220ms</b><span class="t-sm muted">Toggles, tabs, dropdowns, cards</span></div>
+      <div class="spec"><b class="t-sm">--dur-slow · 380ms</b><span class="t-sm muted">Drawers, sidebars, sheets</span></div>
+      <div class="spec" style="border:0"><b class="t-sm">--ease-spring</b>
+        <span class="t-sm muted"><code>cubic-bezier(.32,.72,0,1)</code> — fast out, soft landing, no overshoot</span></div>
+    </div>
+  </section>
+
+  <!-- ── icons ─────────────────────────────────────────────────────────── -->
+  <section class="mb-16">
+    <h2 class="mb-2">Icons</h2>
+    <p class="lede mb-6">
+      One hand-built SVG sprite: 24px grid, 1.75 stroke, round caps. Referenced by
+      <code>&lt;use href="sprite.svg#i-{name}"&gt;</code> so they inherit <code>currentColor</code> and
+      cost a single cached request. No icon-font, no CDN, no layout shift.
+    </p>
+    <div id="iconGrid" class="grid-auto gap-2" style="grid-template-columns:repeat(auto-fill,minmax(92px,1fr))"></div>
+  </section>
+
+  <!-- ── components ────────────────────────────────────────────────────── -->
+  <section class="mb-16">
+    <h2 class="mb-6">Components</h2>
+
+    <h3 class="mb-3">Buttons</h3>
+    <div class="card card-pad stack gap-4 mb-8">
+      <div class="row gap-3 wrap">
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-accent">Accent</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-soft">Soft</button>
+        <button class="btn btn-ghost">Ghost</button>
+        <button class="btn btn-danger">Danger</button>
+        <button class="btn btn-primary" disabled>Disabled</button>
+      </div>
+      <div class="row gap-3 wrap ai-end">
+        <button class="btn btn-primary btn-sm">Small</button>
+        <button class="btn btn-primary">Default</button>
+        <button class="btn btn-primary btn-lg">Large</button>
+        <button class="btn btn-primary btn-xl">Touch (POS)</button>
+        <button class="btn btn-secondary btn-icon" aria-label="More">
+          <svg class="icon"><use href="assets/icons/sprite.svg#i-more"></use></svg></button>
+        <div class="btn-group">
+          <button class="btn" aria-pressed="true">Today</button>
+          <button class="btn">7d</button>
+          <button class="btn">30d</button>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mb-3">Form controls</h3>
+    <div class="card card-pad grid-2 gap-5 mb-8">
+      <div class="field">
+        <label class="label" for="d1">Text input</label>
+        <input class="input" id="d1" placeholder="Chicken Biriyani">
+      </div>
+      <div class="field">
+        <label class="label" for="d2">With icon</label>
+        <div class="input-group">
+          <svg class="icon"><use href="assets/icons/sprite.svg#i-search"></use></svg>
+          <input class="input" id="d2" placeholder="Search the menu…">
+        </div>
+      </div>
+      <div class="field">
+        <label class="label" for="d3">Select</label>
+        <select class="select" id="d3"><option>Wok / Chinese</option><option>Fryer</option></select>
+      </div>
+      <div class="field">
+        <label class="label" for="d4">Invalid<span class="req">*</span></label>
+        <input class="input" id="d4" aria-invalid="true" value="">
+        <span class="error-text">This was left blank on the printed menu.</span>
+      </div>
+      <div class="field" style="grid-column:1/-1">
+        <label class="label" for="d5">Textarea</label>
+        <textarea class="textarea" id="d5" placeholder="Note to kitchen…"></textarea>
+      </div>
+      <div class="row gap-6 wrap" style="grid-column:1/-1">
+        <label class="switch"><input type="checkbox" checked><span class="switch-track"></span>
+          <span class="t-sm">Available for sale</span></label>
+        <label class="check"><input type="checkbox" checked> Show on QR menu</label>
+        <div class="segmented"><button aria-selected="true">All</button><button>Veg</button><button>Non-veg</button></div>
+        <div class="stepper"><button aria-label="less">
+          <svg class="icon icon-sm"><use href="assets/icons/sprite.svg#i-minus"></use></svg></button>
+          <span class="qty">2</span><button aria-label="more">
+          <svg class="icon icon-sm"><use href="assets/icons/sprite.svg#i-plus"></use></svg></button></div>
+      </div>
+    </div>
+
+    <h3 class="mb-3">Feedback</h3>
+    <div class="stack gap-3 mb-8">
+      <div class="alert alert-info"><svg class="icon"><use href="assets/icons/sprite.svg#i-info"></use></svg>
+        <div><strong>Informational</strong>Menu v14 was published yesterday at 19:20.</div></div>
+      <div class="alert alert-success"><svg class="icon"><use href="assets/icons/sprite.svg#i-check-circle"></use></svg>
+        <div><strong>Success</strong>KOT fired to 3 stations.</div></div>
+      <div class="alert alert-warning"><svg class="icon"><use href="assets/icons/sprite.svg#i-warning"></use></svg>
+        <div><strong>Warning</strong>11 items have no price and stay hidden from guests.</div></div>
+      <div class="alert alert-danger"><svg class="icon"><use href="assets/icons/sprite.svg#i-alert"></use></svg>
+        <div><strong>Danger</strong>Bhetki fillet is at zero — Fish Fry is 86'd.</div></div>
+      <div class="row gap-3 wrap">
+        <button class="btn btn-secondary btn-sm" data-toast="success">Toast: success</button>
+        <button class="btn btn-secondary btn-sm" data-toast="warning">Toast: warning</button>
+        <button class="btn btn-secondary btn-sm" data-toast="danger">Toast: danger</button>
+      </div>
+    </div>
+
+    <h3 class="mb-3">Data display</h3>
+    <div class="bento mb-8">
+      <div class="col-4 stat">
+        <div class="stat-label">Net sales</div>
+        <div class="row between ai-end">
+          <div class="stat-value">₹30,190</div>
+          <span class="delta delta-up">
+            <svg class="icon icon-sm"><use href="assets/icons/sprite.svg#i-trending-up"></use></svg>+12.4%</span>
+        </div>
+        <div class="stat-foot">92 orders settled</div>
+      </div>
+      <div class="col-4 card card-pad stack gap-3">
+        <b class="t-sm">Progress &amp; meters</b>
+        <div class="progress"><span style="width:72%"></span></div>
+        <div class="progress progress-warning"><span style="width:44%"></span></div>
+        <div class="progress progress-danger"><span style="width:12%"></span></div>
+      </div>
+      <div class="col-4 card card-pad stack gap-3">
+        <b class="t-sm">Loading</b>
+        <div class="skeleton" style="height:14px;width:70%"></div>
+        <div class="skeleton" style="height:14px;width:90%"></div>
+        <div class="skeleton" style="height:14px;width:50%"></div>
+      </div>
+      <div class="col-12 card">
+        <div class="card-header"><h3>Table</h3><span class="ml-auto t-xs dim">sticky header, hover rows, tabular numerals</span></div>
+        <div class="table-wrap">
+          <table class="data">
+            <thead><tr><th>Order</th><th>Channel</th><th>Status</th><th class="col-num">Total</th></tr></thead>
+            <tbody>
+              <tr><td class="mono t-sm">ORD-2496</td><td class="t-sm">Dine-in</td>
+                <td><span class="badge badge-info badge-dot">New</span></td><td class="col-num num">₹410</td></tr>
+              <tr><td class="mono t-sm">ORD-2495</td><td class="t-sm">Swiggy</td>
+                <td><span class="badge badge-warning badge-dot">Preparing</span></td><td class="col-num num">₹268</td></tr>
+              <tr><td class="mono t-sm">ORD-2494</td><td class="t-sm">Takeaway</td>
+                <td><span class="badge badge-success badge-dot">Paid</span></td><td class="col-num num">₹1,265</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mb-3">Empty states</h3>
+    <div class="card mb-8">
+      <div class="empty">
+        <svg class="icon icon-xl"><use href="assets/icons/sprite.svg#i-orders"></use></svg>
+        <h4>Empty ticket</h4>
+        <p>Tap an item to start. The KOT prints to each station automatically.</p>
+        <button class="btn btn-primary btn-sm mt-2">Open the POS</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── accessibility ─────────────────────────────────────────────────── -->
+  <section class="mb-16">
+    <h2 class="mb-2">Accessibility commitments</h2>
+    <p class="lede mb-6">WCAG 2.2 AA is the floor, not the goal. A restaurant runs at speed in bad light.</p>
+    <div class="card card-pad">
+      <div class="spec"><b class="t-sm">Contrast</b><span class="t-sm muted">Body text ≥ 4.5:1, large text and UI boundaries ≥ 3:1, in both themes.</span></div>
+      <div class="spec"><b class="t-sm">Focus</b><span class="t-sm muted">Every interactive element has a visible <code>:focus-visible</code> ring with a 2px offset against the canvas.</span></div>
+      <div class="spec"><b class="t-sm">Targets</b><span class="t-sm muted">44×44 minimum on POS, KDS and guest surfaces; 30px permitted for dense desktop tables.</span></div>
+      <div class="spec"><b class="t-sm">Motion</b><span class="t-sm muted"><code>prefers-reduced-motion</code> removes transforms, shimmer and the live-dot ping.</span></div>
+      <div class="spec"><b class="t-sm">Semantics</b><span class="t-sm muted">Real buttons, <code>aria-pressed</code> / <code>aria-selected</code> for toggles, <code>aria-current="page"</code> in nav, live regions for toasts.</span></div>
+      <div class="spec" style="border:0"><b class="t-sm">Keyboard</b><span class="t-sm muted">Ctrl/⌘+K palette, F2 POS search, Esc closes every overlay, focus trapped in drawers.</span></div>
+    </div>
+  </section>
+
+  <footer class="center stack gap-2 pt-8" style="border-top:1px solid var(--border-subtle);padding-top:var(--space-8)">
+    <p class="t-sm dim">Tokens live in <code>assets/css/tokens.css</code>. Nothing below that file hard-codes a colour.</p>
+    <p class="t-xs faint">RestrOS design system · v1.0 · August 2026</p>
+  </footer>
+</main>
+
+<script type="module">
+  import { $, $$, esc, icon, ready, toast, theme, SPRITE } from './assets/js/core.js';
+
+  const RAMPS = {
+    Basil: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', '950'],
+    Chilli: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', '950'],
+    Turmeric: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+    Indigo: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+    Jade: ['100', '300', '500', '600', '700', '900'],
+    Ink: ['0', '50', '100', '200', '300', '400', '500', '600', '700', '800', '900', '950', '1000'],
+  };
+
+  const SEMANTIC = [
+    'bg-canvas', 'bg-surface', 'bg-raised', 'bg-inset', 'bg-hover', 'bg-selected',
+    'border-subtle', 'border-default', 'border-strong',
+    'text-primary', 'text-secondary', 'text-tertiary',
+    'brand', 'brand-soft', 'accent', 'accent-soft',
+    'success', 'warning', 'danger', 'info',
+  ];
+
+  const TYPE = [
+    ['--text-5xl', 'Display hero', 'clamp(3rem → 5.5rem)'],
+    ['--text-4xl', 'Page hero', 'clamp(2.5rem → 4rem)'],
+    ['--text-3xl', 'Section heading', 'clamp(2rem → 2.75rem)'],
+    ['--text-2xl', 'Page title', '28px'],
+    ['--text-xl', 'Card title', '22px'],
+    ['--text-lg', 'Subheading', '18px'],
+    ['--text-md', 'Reading body', '16px'],
+    ['--text-base', 'App body', '14px'],
+    ['--text-sm', 'Secondary UI', '13px'],
+    ['--text-xs', 'Caption / badge', '12px'],
+    ['--text-2xs', 'Micro label', '11px'],
+  ];
+
+  ready(() => {
+    // Colour ramps
+    $('#ramps').innerHTML = Object.entries(RAMPS).map(([name, steps]) => `
+      <div>
+        <h4 class="mb-2">${esc(name)}</h4>
+        <div class="grid" style="grid-template-columns:repeat(${steps.length},minmax(0,1fr));gap:var(--space-2)">
+          ${steps.map((s) => `
+            <div class="stack gap-1">
+              <div class="swatch" style="background:var(--${name.toLowerCase()}-${s})"></div>
+              <span class="t-2xs faint center mono">${esc(s)}</span>
+            </div>`).join('')}
+        </div>
+      </div>`).join('');
+
+    // Semantic tokens
+    $('#semantics').innerHTML = SEMANTIC.map((t) => `
+      <div class="card card-flat" style="padding:var(--space-2);display:flex;gap:var(--space-2);align-items:center">
+        <span style="width:32px;height:32px;border-radius:var(--radius-sm);background:var(--${t});
+                     box-shadow:var(--ring-inset);flex-shrink:0"></span>
+        <span class="t-2xs mono truncate">--${esc(t)}</span>
+      </div>`).join('');
+
+    // Type scale
+    $('#typeScale').innerHTML = `<div class="card card-pad">` + TYPE.map(([v, use, px], i) => `
+      <div class="spec" ${i === TYPE.length - 1 ? 'style="border:0"' : ''}>
+        <div class="stack" style="gap:2px">
+          <code class="t-xs">${esc(v)}</code>
+          <span class="t-2xs faint">${esc(px)} · ${esc(use)}</span>
+        </div>
+        <span class="truncate" style="font-size:var(${v});font-family:var(--font-display);
+              font-weight:700;letter-spacing:var(--tracking-tight);line-height:1.1">Adda Khana</span>
+      </div>`).join('') + `</div>`;
+
+    // Spacing
+    $('#spaceScale').innerHTML = [1, 2, 3, 4, 5, 6, 8, 10, 12, 16].map((n) => `
+      <div class="row gap-3">
+        <code class="t-xs" style="width:88px">--space-${n}</code>
+        <span style="height:14px;border-radius:3px;background:var(--brand);width:calc(var(--space-${n}))"></span>
+        <span class="t-2xs faint">${n * 4}px</span>
+      </div>`).join('');
+
+    // Radius
+    $('#radiusScale').innerHTML = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'].map((r) => `
+      <div class="stack gap-1 center">
+        <div style="width:56px;height:56px;background:var(--brand-soft);border-radius:var(--radius-${r});
+                    box-shadow:var(--ring-inset)"></div>
+        <span class="t-2xs faint mono">${esc(r)}</span>
+      </div>`).join('');
+
+    // Shadow
+    $('#shadowScale').innerHTML = ['xs', 'sm', 'md', 'lg', 'xl'].map((s) => `
+      <div class="stack gap-2 center">
+        <div style="width:78px;height:56px;background:var(--bg-surface);border-radius:var(--radius-md);
+                    box-shadow:var(--shadow-${s})"></div>
+        <span class="t-2xs faint mono">${esc(s)}</span>
+      </div>`).join('');
+
+    // Icon grid, read from the sprite itself so it can never drift.
+    fetch(SPRITE).then((r) => r.text()).then((svg) => {
+      const ids = [...svg.matchAll(/id="(i-[a-z0-9-]+)"/g)].map((m) => m[1]);
+      $('#iconGrid').innerHTML = ids.map((id) => `
+        <button class="icon-cell" data-copy="${esc(id)}" title="Copy ${esc(id)}">
+          <svg class="icon icon-lg"><use href="${SPRITE}#${esc(id)}"></use></svg>
+          <span class="truncate full">${esc(id.replace('i-', ''))}</span>
+        </button>`).join('');
+      $('#iconGrid').insertAdjacentHTML('beforebegin',
+        `<p class="t-xs dim mb-3">${ids.length} icons in the sprite. Click to copy the reference.</p>`);
+    });
+
+    $$('[data-toast]').forEach((b) => b.addEventListener('click', () => {
+      const t = b.dataset.toast;
+      toast({ success: 'Menu v15 published to every surface',
+              warning: '11 items still need a price',
+              danger: 'Bhetki fillet is at zero' }[t],
+        { type: t, icon: t === 'success' ? 'check-circle' : t === 'warning' ? 'warning' : 'alert' });
+    }));
+
+    document.addEventListener('click', (ev) => {
+      const cell = ev.target.closest('[data-copy]');
+      if (!cell) return;
+      const snippet = `<svg class="icon"><use href="…/sprite.svg#${cell.dataset.copy}"></use></svg>`;
+      navigator.clipboard?.writeText(snippet)
+        .then(() => toast(`Copied ${cell.dataset.copy}`, { icon: 'copy' }))
+        .catch(() => toast(snippet, { icon: 'copy', timeout: 5000 }));
+    });
+
+    const btn = $('#themeToggle');
+    const sync = () => {
+      const m = theme.get();
+      btn.innerHTML = icon(m === 'dark' ? 'moon' : m === 'light' ? 'sun' : 'monitor');
+    };
+    sync();
+    btn.addEventListener('click', () => { theme.cycle(); sync(); });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>POS Terminal · RestrOS</title>
+<meta name="description" content="RestrOS point of sale — build a ticket, fire the KOT, settle the bill.">
+<script>try{var t=JSON.parse(localStorage.getItem('restros:theme'));if(t&&t!=='system')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/app.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧾</text></svg>">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="app" id="app">
+  <div class="app-col">
+    <main class="app-main app-main-flush" id="main">
+      <div class="pos">
+        <!-- ── catalogue ─────────────────────────────────────────────── -->
+        <section class="pos-catalog" aria-label="Menu">
+          <div class="pos-filters">
+            <div class="input-group grow" style="max-width:340px">
+              <svg class="icon"><use href="../assets/icons/sprite.svg#i-search"></use></svg>
+              <input class="input" id="posSearch" type="search" placeholder="Search the menu…  (F2)" autocomplete="off">
+            </div>
+            <div class="segmented" role="group" aria-label="Dietary filter">
+              <button data-diet="all" aria-selected="true">All</button>
+              <button data-diet="veg">Veg</button>
+              <button data-diet="nonveg">Non-veg</button>
+            </div>
+            <div class="grow"></div>
+            <span class="badge badge-outline" id="posCount">—</span>
+          </div>
+
+          <div class="pos-cats" id="posCats" role="tablist" aria-label="Categories"></div>
+          <div class="pos-grid" id="posGrid"></div>
+        </section>
+
+        <!-- ── ticket ────────────────────────────────────────────────── -->
+        <aside class="pos-ticket" aria-label="Current ticket">
+          <div class="ticket-head">
+            <div class="row between">
+              <div class="stack" style="gap:0">
+                <b class="mono t-sm">ORD-2497</b>
+                <span class="t-2xs faint">New ticket · Riya Sen</span>
+              </div>
+              <div class="row gap-1">
+                <button class="btn btn-ghost btn-icon btn-sm" data-tip="Split bill" id="btnSplit">
+                  <svg class="icon"><use href="../assets/icons/sprite.svg#i-split"></use></svg>
+                </button>
+                <button class="btn btn-ghost btn-icon btn-sm" data-tip="Clear ticket" id="btnClear">
+                  <svg class="icon"><use href="../assets/icons/sprite.svg#i-trash"></use></svg>
+                </button>
+              </div>
+            </div>
+            <div class="segmented full" role="group" aria-label="Order type" id="orderType">
+              <button aria-selected="true" data-type="dine_in" class="grow">Dine-in</button>
+              <button data-type="takeaway" class="grow">Takeaway</button>
+              <button data-type="delivery" class="grow">Delivery</button>
+            </div>
+            <div class="row gap-2" id="tableRow">
+              <select class="select" id="posTable" aria-label="Table"></select>
+              <select class="select" id="posGuests" aria-label="Guests" style="max-width:110px"></select>
+            </div>
+          </div>
+
+          <div class="ticket-lines" id="ticketLines"></div>
+
+          <div class="ticket-foot">
+            <div id="ticketTotals"></div>
+            <div class="pay-grid" role="group" aria-label="Payment method" id="payMethods">
+              <button class="pay-btn" data-pay="cash" aria-pressed="true">
+                <svg class="icon"><use href="../assets/icons/sprite.svg#i-cash"></use></svg>Cash</button>
+              <button class="pay-btn" data-pay="upi">
+                <svg class="icon"><use href="../assets/icons/sprite.svg#i-upi"></use></svg>UPI</button>
+              <button class="pay-btn" data-pay="card">
+                <svg class="icon"><use href="../assets/icons/sprite.svg#i-billing"></use></svg>Card</button>
+              <button class="pay-btn" data-pay="due">
+                <svg class="icon"><use href="../assets/icons/sprite.svg#i-clock"></use></svg>Due</button>
+            </div>
+            <div class="row gap-2">
+              <button class="btn btn-secondary grow" id="btnKot">
+                <svg class="icon"><use href="../assets/icons/sprite.svg#i-printer"></use></svg>Fire KOT
+              </button>
+              <button class="btn btn-primary grow btn-lg" id="btnSettle">
+                Settle <span id="btnSettleAmt" class="num"></span>
+              </button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Item options drawer: variants + modifiers -->
+<div class="scrim" id="optScrim"></div>
+<div class="drawer" id="optDrawer" role="dialog" aria-modal="true" aria-labelledby="optTitle">
+  <div class="drawer-header">
+    <h3 id="optTitle">Options</h3>
+    <button class="btn btn-ghost btn-icon btn-sm ml-auto" data-close-drawer aria-label="Close">
+      <svg class="icon"><use href="../assets/icons/sprite.svg#i-x"></use></svg>
+    </button>
+  </div>
+  <div class="drawer-body" id="optBody"></div>
+  <div class="drawer-footer">
+    <button class="btn btn-secondary" data-close-drawer>Cancel</button>
+    <button class="btn btn-primary grow" id="optAdd">Add to ticket</button>
+  </div>
+</div>
+
+<script type="module" src="../assets/js/pos.js"></script>
+</body>
+</html>

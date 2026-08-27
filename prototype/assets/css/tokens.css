@@ -1,0 +1,508 @@
+/* ============================================================================
+   RestrOS — Design Tokens
+   ----------------------------------------------------------------------------
+   The single source of truth for colour, type, space, motion and elevation.
+   Nothing below this file may hard-code a colour or a pixel ramp value.
+
+   Layer 1  primitives   basil-500, chilli-600 …   raw palette, never used directly in components
+   Layer 2  semantics    --bg-surface, --text-primary …   what components consume
+   Layer 3  components   --btn-height, --sidebar-w …      per-pattern knobs
+
+   Colour is authored in OKLCH: perceptually uniform lightness means a ramp step
+   is the same visual step at every hue, and the dark theme is a lightness
+   inversion rather than a hand-tuned second palette.
+   ========================================================================== */
+
+/* ------------------------------------------------------------------ 1. PRIMITIVES */
+:root {
+  /* Basil — the brand green. Lifted from the Cafe Adda Khana menu card (#0E3B2E). */
+  --basil-50:  oklch(0.972 0.017 162);
+  --basil-100: oklch(0.941 0.033 162);
+  --basil-200: oklch(0.886 0.058 162);
+  --basil-300: oklch(0.812 0.084 162);
+  --basil-400: oklch(0.723 0.104 162);
+  --basil-500: oklch(0.628 0.108 162);
+  --basil-600: oklch(0.532 0.096 163);
+  --basil-700: oklch(0.442 0.081 164);
+  --basil-800: oklch(0.365 0.066 165);
+  --basil-900: oklch(0.302 0.055 166);
+  --basil-950: oklch(0.208 0.041 168);
+
+  /* Chilli — the accent. The red from the menu's price column (#D8402A). */
+  --chilli-50:  oklch(0.968 0.017 40);
+  --chilli-100: oklch(0.936 0.036 39);
+  --chilli-200: oklch(0.876 0.072 38);
+  --chilli-300: oklch(0.797 0.118 36);
+  --chilli-400: oklch(0.703 0.163 34);
+  --chilli-500: oklch(0.625 0.192 33);
+  --chilli-600: oklch(0.556 0.196 31);
+  --chilli-700: oklch(0.472 0.172 30);
+  --chilli-800: oklch(0.398 0.140 29);
+  --chilli-900: oklch(0.338 0.111 29);
+  --chilli-950: oklch(0.232 0.077 30);
+
+  /* Turmeric — warning, pending, "needs attention". */
+  --turmeric-100: oklch(0.955 0.048 92);
+  --turmeric-200: oklch(0.905 0.093 91);
+  --turmeric-300: oklch(0.855 0.130 89);
+  --turmeric-400: oklch(0.806 0.150 85);
+  --turmeric-500: oklch(0.757 0.145 80);
+  --turmeric-600: oklch(0.668 0.134 72);
+  --turmeric-700: oklch(0.552 0.113 66);
+  --turmeric-800: oklch(0.432 0.088 64);
+  --turmeric-900: oklch(0.336 0.066 64);
+
+  /* Indigo — informational, links, "system" states. */
+  --indigo-100: oklch(0.936 0.033 255);
+  --indigo-200: oklch(0.882 0.062 256);
+  --indigo-300: oklch(0.806 0.098 258);
+  --indigo-400: oklch(0.716 0.138 260);
+  --indigo-500: oklch(0.628 0.166 262);
+  --indigo-600: oklch(0.545 0.184 263);
+  --indigo-700: oklch(0.468 0.161 264);
+  --indigo-800: oklch(0.392 0.128 265);
+  --indigo-900: oklch(0.318 0.096 266);
+
+  /* Jade — success, paid, healthy. Cooler than basil so the two never collide. */
+  --jade-100: oklch(0.942 0.045 168);
+  --jade-300: oklch(0.822 0.116 168);
+  --jade-500: oklch(0.688 0.145 167);
+  --jade-600: oklch(0.598 0.130 167);
+  --jade-700: oklch(0.498 0.106 168);
+  --jade-900: oklch(0.328 0.062 169);
+
+  /* Ink — the neutral ramp. Carries a whisper of the brand hue (165) so greys
+     read warm-green rather than dead grey, in both themes. */
+  --ink-0:   oklch(1     0     0);
+  --ink-25:  oklch(0.990 0.003 165);
+  --ink-50:  oklch(0.977 0.005 165);
+  --ink-100: oklch(0.958 0.007 165);
+  --ink-150: oklch(0.934 0.008 165);
+  --ink-200: oklch(0.906 0.009 165);
+  --ink-300: oklch(0.848 0.010 165);
+  --ink-400: oklch(0.735 0.012 166);
+  --ink-500: oklch(0.618 0.013 167);
+  --ink-600: oklch(0.512 0.014 167);
+  --ink-700: oklch(0.412 0.014 168);
+  --ink-800: oklch(0.312 0.013 168);
+  --ink-850: oklch(0.258 0.013 168);
+  --ink-900: oklch(0.208 0.012 168);
+  --ink-925: oklch(0.180 0.012 168);
+  --ink-950: oklch(0.155 0.011 168);
+  --ink-975: oklch(0.128 0.010 168);
+  --ink-1000: oklch(0.098 0.009 168);
+
+  /* Paper — the warm cream from the printed menu. Light theme canvas. */
+  --paper-50:  oklch(0.988 0.008 88);
+  --paper-100: oklch(0.972 0.016 87);
+  --paper-200: oklch(0.951 0.024 86);
+  --paper-300: oklch(0.922 0.032 85);
+
+  /* Station colours — mirrored from menu.json so KDS rails and menu chips agree. */
+  --station-wok: var(--chilli-500);
+  --station-fry: var(--turmeric-600);
+  --station-tandoor: oklch(0.520 0.132 32);
+  --station-rice: var(--jade-600);
+  --station-cold: oklch(0.618 0.098 232);
+  --station-cha: oklch(0.512 0.052 62);
+}
+
+/* ------------------------------------------------------------------ 2. SEMANTICS */
+/* Light theme is the bare :root definition — every token gets its value here so
+   nothing is ever defined only inside a media query. */
+:root {
+  color-scheme: light;
+
+  /* Surfaces, from furthest back to closest to the reader */
+  --bg-canvas: var(--paper-100);
+  --bg-sunken: var(--paper-200);
+  --bg-surface: var(--ink-0);
+  --bg-raised: var(--ink-0);
+  --bg-overlay: var(--ink-0);
+  --bg-inset: color-mix(in oklch, var(--paper-200) 70%, var(--ink-0));
+  --bg-hover: color-mix(in oklch, var(--basil-900) 4%, transparent);
+  --bg-active: color-mix(in oklch, var(--basil-900) 8%, transparent);
+  --bg-selected: color-mix(in oklch, var(--basil-500) 12%, transparent);
+  --bg-scrim: color-mix(in oklch, var(--ink-1000) 42%, transparent);
+
+  /* Glass — used by the topbar and floating rails */
+  --glass-bg: color-mix(in oklch, var(--ink-0) 72%, transparent);
+  --glass-blur: 20px;
+
+  /* Borders */
+  --border-subtle: color-mix(in oklch, var(--ink-900) 8%, transparent);
+  --border-default: color-mix(in oklch, var(--ink-900) 14%, transparent);
+  --border-strong: color-mix(in oklch, var(--ink-900) 26%, transparent);
+  --border-inverse: color-mix(in oklch, var(--ink-0) 16%, transparent);
+
+  /* Text */
+  --text-primary: var(--ink-900);
+  --text-secondary: var(--ink-700);
+  --text-tertiary: var(--ink-600);
+  --text-quaternary: var(--ink-500);
+  --text-inverse: var(--ink-25);
+  --text-brand: var(--basil-700);
+  --text-accent: var(--chilli-700);
+  --text-link: var(--basil-700);
+
+  /* Brand */
+  --brand: var(--basil-900);
+  --brand-hover: var(--basil-800);
+  --brand-fg: var(--ink-25);
+  --brand-soft: color-mix(in oklch, var(--basil-500) 14%, transparent);
+  --brand-soft-fg: var(--basil-800);
+  --brand-ring: color-mix(in oklch, var(--basil-500) 45%, transparent);
+
+  --accent: var(--chilli-600);
+  --accent-hover: var(--chilli-700);
+  --accent-fg: var(--ink-25);
+  --accent-soft: color-mix(in oklch, var(--chilli-500) 14%, transparent);
+  --accent-soft-fg: var(--chilli-800);
+
+  /* Status */
+  --success: var(--jade-600);
+  --success-fg: var(--ink-25);
+  --success-soft: color-mix(in oklch, var(--jade-500) 16%, transparent);
+  --success-soft-fg: var(--jade-700);
+
+  --warning: var(--turmeric-600);
+  --warning-fg: var(--ink-1000);
+  --warning-soft: color-mix(in oklch, var(--turmeric-500) 20%, transparent);
+  --warning-soft-fg: var(--turmeric-800);
+
+  --danger: var(--chilli-600);
+  --danger-fg: var(--ink-25);
+  --danger-soft: color-mix(in oklch, var(--chilli-500) 15%, transparent);
+  --danger-soft-fg: var(--chilli-800);
+
+  --info: var(--indigo-600);
+  --info-fg: var(--ink-25);
+  --info-soft: color-mix(in oklch, var(--indigo-500) 14%, transparent);
+  --info-soft-fg: var(--indigo-800);
+
+  --neutral-soft: color-mix(in oklch, var(--ink-900) 7%, transparent);
+  --neutral-soft-fg: var(--ink-700);
+
+  /* Dietary marks — the veg/non-veg square is a legal requirement in India */
+  --veg: oklch(0.560 0.140 145);
+  --nonveg: oklch(0.520 0.180 28);
+
+  /* Elevation. Two-part shadows: a tight contact shadow plus a wide ambient one. */
+  --shadow-xs: 0 1px 2px -1px color-mix(in oklch, var(--ink-1000) 10%, transparent);
+  --shadow-sm:
+    0 1px 2px -1px color-mix(in oklch, var(--ink-1000) 8%, transparent),
+    0 2px 6px -2px color-mix(in oklch, var(--ink-1000) 8%, transparent);
+  --shadow-md:
+    0 2px 4px -2px color-mix(in oklch, var(--ink-1000) 8%, transparent),
+    0 8px 20px -6px color-mix(in oklch, var(--ink-1000) 12%, transparent);
+  --shadow-lg:
+    0 4px 8px -4px color-mix(in oklch, var(--ink-1000) 10%, transparent),
+    0 18px 40px -12px color-mix(in oklch, var(--ink-1000) 16%, transparent);
+  --shadow-xl:
+    0 8px 16px -8px color-mix(in oklch, var(--ink-1000) 12%, transparent),
+    0 36px 72px -20px color-mix(in oklch, var(--ink-1000) 22%, transparent);
+  /* Hairline: the 1px inner highlight that makes a surface feel physical */
+  --ring-inset: inset 0 0 0 1px var(--border-subtle);
+  --highlight-top: inset 0 1px 0 0 color-mix(in oklch, var(--ink-0) 60%, transparent);
+
+  --focus-ring: 0 0 0 2px var(--bg-canvas), 0 0 0 4px var(--brand-ring);
+}
+
+/* Dark theme — declared twice so both the explicit toggle and the OS default win
+   in their own context. Only the semantic layer flips; primitives never move. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) { color-scheme: dark; }
+}
+:root[data-theme='dark'] { color-scheme: dark; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg-canvas: var(--ink-1000);
+    --bg-sunken: var(--ink-975);
+    --bg-surface: var(--ink-950);
+    --bg-raised: var(--ink-925);
+    --bg-overlay: var(--ink-900);
+    --bg-inset: var(--ink-975);
+    --bg-hover: color-mix(in oklch, var(--ink-0) 6%, transparent);
+    --bg-active: color-mix(in oklch, var(--ink-0) 10%, transparent);
+    --bg-selected: color-mix(in oklch, var(--basil-400) 16%, transparent);
+    --bg-scrim: color-mix(in oklch, var(--ink-1000) 66%, transparent);
+
+    --glass-bg: color-mix(in oklch, var(--ink-950) 72%, transparent);
+
+    --border-subtle: color-mix(in oklch, var(--ink-0) 8%, transparent);
+    --border-default: color-mix(in oklch, var(--ink-0) 13%, transparent);
+    --border-strong: color-mix(in oklch, var(--ink-0) 24%, transparent);
+    --border-inverse: color-mix(in oklch, var(--ink-1000) 20%, transparent);
+
+    --text-primary: var(--ink-50);
+    --text-secondary: var(--ink-300);
+    --text-tertiary: var(--ink-400);
+    --text-quaternary: var(--ink-500);
+    --text-inverse: var(--ink-950);
+    --text-brand: var(--basil-300);
+    --text-accent: var(--chilli-300);
+    --text-link: var(--basil-300);
+
+    --brand: var(--basil-400);
+    --brand-hover: var(--basil-300);
+    --brand-fg: var(--ink-1000);
+    --brand-soft: color-mix(in oklch, var(--basil-400) 18%, transparent);
+    --brand-soft-fg: var(--basil-200);
+    --brand-ring: color-mix(in oklch, var(--basil-400) 55%, transparent);
+
+    --accent: var(--chilli-500);
+    --accent-hover: var(--chilli-400);
+    --accent-fg: var(--ink-1000);
+    --accent-soft: color-mix(in oklch, var(--chilli-400) 20%, transparent);
+    --accent-soft-fg: var(--chilli-200);
+
+    --success: var(--jade-500);
+    --success-fg: var(--ink-1000);
+    --success-soft: color-mix(in oklch, var(--jade-500) 20%, transparent);
+    --success-soft-fg: var(--jade-300);
+
+    --warning: var(--turmeric-500);
+    --warning-fg: var(--ink-1000);
+    --warning-soft: color-mix(in oklch, var(--turmeric-500) 20%, transparent);
+    --warning-soft-fg: var(--turmeric-200);
+
+    --danger: var(--chilli-500);
+    --danger-fg: var(--ink-1000);
+    --danger-soft: color-mix(in oklch, var(--chilli-500) 20%, transparent);
+    --danger-soft-fg: var(--chilli-200);
+
+    --info: var(--indigo-500);
+    --info-fg: var(--ink-1000);
+    --info-soft: color-mix(in oklch, var(--indigo-400) 20%, transparent);
+    --info-soft-fg: var(--indigo-200);
+
+    --neutral-soft: color-mix(in oklch, var(--ink-0) 9%, transparent);
+    --neutral-soft-fg: var(--ink-300);
+
+    --veg: oklch(0.700 0.150 145);
+    --nonveg: oklch(0.650 0.185 28);
+
+    --shadow-xs: 0 1px 2px -1px color-mix(in oklch, var(--ink-1000) 60%, transparent);
+    --shadow-sm:
+      0 1px 2px -1px color-mix(in oklch, var(--ink-1000) 50%, transparent),
+      0 2px 6px -2px color-mix(in oklch, var(--ink-1000) 45%, transparent);
+    --shadow-md:
+      0 2px 4px -2px color-mix(in oklch, var(--ink-1000) 50%, transparent),
+      0 8px 20px -6px color-mix(in oklch, var(--ink-1000) 55%, transparent);
+    --shadow-lg:
+      0 4px 8px -4px color-mix(in oklch, var(--ink-1000) 55%, transparent),
+      0 18px 40px -12px color-mix(in oklch, var(--ink-1000) 65%, transparent);
+    --shadow-xl:
+      0 8px 16px -8px color-mix(in oklch, var(--ink-1000) 60%, transparent),
+      0 36px 72px -20px color-mix(in oklch, var(--ink-1000) 75%, transparent);
+    --highlight-top: inset 0 1px 0 0 color-mix(in oklch, var(--ink-0) 8%, transparent);
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg-canvas: var(--ink-1000);
+  --bg-sunken: var(--ink-975);
+  --bg-surface: var(--ink-950);
+  --bg-raised: var(--ink-925);
+  --bg-overlay: var(--ink-900);
+  --bg-inset: var(--ink-975);
+  --bg-hover: color-mix(in oklch, var(--ink-0) 6%, transparent);
+  --bg-active: color-mix(in oklch, var(--ink-0) 10%, transparent);
+  --bg-selected: color-mix(in oklch, var(--basil-400) 16%, transparent);
+  --bg-scrim: color-mix(in oklch, var(--ink-1000) 66%, transparent);
+
+  --glass-bg: color-mix(in oklch, var(--ink-950) 72%, transparent);
+
+  --border-subtle: color-mix(in oklch, var(--ink-0) 8%, transparent);
+  --border-default: color-mix(in oklch, var(--ink-0) 13%, transparent);
+  --border-strong: color-mix(in oklch, var(--ink-0) 24%, transparent);
+  --border-inverse: color-mix(in oklch, var(--ink-1000) 20%, transparent);
+
+  --text-primary: var(--ink-50);
+  --text-secondary: var(--ink-300);
+  --text-tertiary: var(--ink-400);
+  --text-quaternary: var(--ink-500);
+  --text-inverse: var(--ink-950);
+  --text-brand: var(--basil-300);
+  --text-accent: var(--chilli-300);
+  --text-link: var(--basil-300);
+
+  --brand: var(--basil-400);
+  --brand-hover: var(--basil-300);
+  --brand-fg: var(--ink-1000);
+  --brand-soft: color-mix(in oklch, var(--basil-400) 18%, transparent);
+  --brand-soft-fg: var(--basil-200);
+  --brand-ring: color-mix(in oklch, var(--basil-400) 55%, transparent);
+
+  --accent: var(--chilli-500);
+  --accent-hover: var(--chilli-400);
+  --accent-fg: var(--ink-1000);
+  --accent-soft: color-mix(in oklch, var(--chilli-400) 20%, transparent);
+  --accent-soft-fg: var(--chilli-200);
+
+  --success: var(--jade-500);
+  --success-fg: var(--ink-1000);
+  --success-soft: color-mix(in oklch, var(--jade-500) 20%, transparent);
+  --success-soft-fg: var(--jade-300);
+
+  --warning: var(--turmeric-500);
+  --warning-fg: var(--ink-1000);
+  --warning-soft: color-mix(in oklch, var(--turmeric-500) 20%, transparent);
+  --warning-soft-fg: var(--turmeric-200);
+
+  --danger: var(--chilli-500);
+  --danger-fg: var(--ink-1000);
+  --danger-soft: color-mix(in oklch, var(--chilli-500) 20%, transparent);
+  --danger-soft-fg: var(--chilli-200);
+
+  --info: var(--indigo-500);
+  --info-fg: var(--ink-1000);
+  --info-soft: color-mix(in oklch, var(--indigo-400) 20%, transparent);
+  --info-soft-fg: var(--indigo-200);
+
+  --neutral-soft: color-mix(in oklch, var(--ink-0) 9%, transparent);
+  --neutral-soft-fg: var(--ink-300);
+
+  --veg: oklch(0.700 0.150 145);
+  --nonveg: oklch(0.650 0.185 28);
+
+  --shadow-xs: 0 1px 2px -1px color-mix(in oklch, var(--ink-1000) 60%, transparent);
+  --shadow-sm:
+    0 1px 2px -1px color-mix(in oklch, var(--ink-1000) 50%, transparent),
+    0 2px 6px -2px color-mix(in oklch, var(--ink-1000) 45%, transparent);
+  --shadow-md:
+    0 2px 4px -2px color-mix(in oklch, var(--ink-1000) 50%, transparent),
+    0 8px 20px -6px color-mix(in oklch, var(--ink-1000) 55%, transparent);
+  --shadow-lg:
+    0 4px 8px -4px color-mix(in oklch, var(--ink-1000) 55%, transparent),
+    0 18px 40px -12px color-mix(in oklch, var(--ink-1000) 65%, transparent);
+  --shadow-xl:
+    0 8px 16px -8px color-mix(in oklch, var(--ink-1000) 60%, transparent),
+    0 36px 72px -20px color-mix(in oklch, var(--ink-1000) 75%, transparent);
+  --highlight-top: inset 0 1px 0 0 color-mix(in oklch, var(--ink-0) 8%, transparent);
+}
+
+/* ------------------------------------------------------------------ 3. TYPOGRAPHY */
+:root {
+  --font-display: 'Bricolage Grotesque', 'Archivo', 'Segoe UI', system-ui, sans-serif;
+  --font-sans: 'Inter', 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+
+  /* Dense-by-default: an operator scanning a POS grid needs more rows, not
+     bigger letters. Marketing pages opt up with the fluid steps. */
+  --text-2xs: 0.6875rem;  /* 11px — micro labels, table meta */
+  --text-xs: 0.75rem;     /* 12px — badges, captions */
+  --text-sm: 0.8125rem;   /* 13px — secondary UI */
+  --text-base: 0.875rem;  /* 14px — app body */
+  --text-md: 1rem;        /* 16px — reading body */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.375rem;    /* 22px */
+  --text-2xl: 1.75rem;    /* 28px */
+  --text-3xl: clamp(2rem, 1.6rem + 1.4vw, 2.75rem);
+  --text-4xl: clamp(2.5rem, 1.7rem + 3.2vw, 4rem);
+  --text-5xl: clamp(3rem, 1.6rem + 5.6vw, 5.5rem);
+
+  --leading-none: 1;
+  --leading-tight: 1.15;
+  --leading-snug: 1.3;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  --tracking-tighter: -0.03em;
+  --tracking-tight: -0.015em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+  --tracking-widest: 0.12em;
+
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-black: 800;
+}
+
+/* ------------------------------------------------------------------ 4. SPACE / SHAPE */
+:root {
+  --space-0: 0;
+  --space-px: 1px;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 1.75rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-2xl: 28px;
+  --radius-3xl: 36px;
+  --radius-full: 999px;
+
+  --border-width: 1px;
+
+  /* Component knobs */
+  --sidebar-w: 252px;
+  --sidebar-w-collapsed: 68px;
+  --topbar-h: 60px;
+  --control-h-sm: 30px;
+  --control-h: 36px;
+  --control-h-lg: 44px;
+  --control-h-xl: 54px;      /* touch targets on POS / KDS */
+  --content-max: 1400px;
+  --prose-max: 68ch;
+}
+
+/* ------------------------------------------------------------------ 5. MOTION */
+:root {
+  /* A spring-ish curve for anything that moves in space, a soft-out curve for
+     anything that only fades or changes colour. */
+  --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --dur-instant: 80ms;
+  --dur-fast: 140ms;
+  --dur-base: 220ms;
+  --dur-slow: 380ms;
+  --dur-slower: 620ms;
+
+  --t-color: color var(--dur-fast) var(--ease-out),
+             background-color var(--dur-fast) var(--ease-out),
+             border-color var(--dur-fast) var(--ease-out);
+  --t-transform: transform var(--dur-base) var(--ease-spring);
+  --t-all: all var(--dur-base) var(--ease-spring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-instant: 1ms; --dur-fast: 1ms; --dur-base: 1ms;
+    --dur-slow: 1ms; --dur-slower: 1ms;
+  }
+}
+
+/* ------------------------------------------------------------------ 6. Z-INDEX */
+:root {
+  --z-base: 0;
+  --z-sticky: 10;
+  --z-sidebar: 20;
+  --z-topbar: 30;
+  --z-dropdown: 40;
+  --z-scrim: 50;
+  --z-drawer: 60;
+  --z-modal: 70;
+  --z-palette: 80;
+  --z-toast: 90;
+  --z-tooltip: 100;
+}

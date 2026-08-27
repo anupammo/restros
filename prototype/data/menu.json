@@ -1,0 +1,266 @@
+{
+  "meta": {
+    "source": "Cafe Adda Khana - printed menu card (Kolkata), photographed 2026",
+    "transcribedAt": "2026-08-27",
+    "currency": "INR",
+    "currencySymbol": "₹",
+    "taxMode": "inclusive",
+    "notes": [
+      "Prices set to null were left blank on the printed sheet and must be filled before publishing.",
+      "Items with pendingPrice:true surface in the console as 'Needs price' and are auto-hidden from the guest menu.",
+      "Handwritten annotations on the photographed card are captured under 'annotation' and require owner confirmation."
+    ]
+  },
+  "tenant": {
+    "id": "t_adda",
+    "name": "Cafe Adda Khana",
+    "tagline": "Where every plate comes with a story & a cup of cha",
+    "city": "Kolkata",
+    "established": "EST. ADDA",
+    "brand": { "primary": "#0E3B2E", "accent": "#D8402A", "surface": "#F7F1E4" }
+  },
+  "stations": [
+    { "id": "st_wok", "name": "Wok / Chinese", "short": "WOK", "color": "#D8402A" },
+    { "id": "st_fry", "name": "Fryer", "short": "FRY", "color": "#E08A1E" },
+    { "id": "st_tandoor", "name": "Moghlai / Tandoor", "short": "TAN", "color": "#A8432F" },
+    { "id": "st_rice", "name": "Rice & Biriyani", "short": "RICE", "color": "#2F7A57" },
+    { "id": "st_cold", "name": "Cold / Beverage", "short": "COLD", "color": "#3B7EA1" },
+    { "id": "st_cha", "name": "Cha Counter", "short": "CHA", "color": "#7A5C3E" }
+  ],
+  "categories": [
+    {
+      "id": "cat_starters_veg",
+      "name": "Starters",
+      "subtitle": "Veg",
+      "slug": "starters-veg",
+      "dietary": "veg",
+      "station": "st_fry",
+      "sort": 1,
+      "items": [
+        { "id": "itm_baby_corn", "name": "Crispy Chilli Baby Corn", "price": 100, "veg": true, "station": "st_wok", "tags": ["bestseller", "spicy"], "available": true, "prepMins": 12 },
+        { "id": "itm_fries", "name": "French Fries", "price": 60, "veg": true, "station": "st_fry", "tags": ["kids"], "available": true, "prepMins": 8 },
+        { "id": "itm_chilli_potato", "name": "Chilli Potato", "price": 70, "veg": true, "station": "st_wok", "tags": ["spicy"], "available": true, "prepMins": 10 },
+        { "id": "itm_veg_pakora", "name": "Veg Pakora", "portion": "10 pc", "price": 60, "veg": true, "station": "st_fry", "tags": ["monsoon"], "available": true, "prepMins": 10, "annotation": { "text": "Handwritten on card: Pakora -> 40", "suggestedPrice": 40, "status": "needs-confirmation" } },
+        { "id": "itm_chilli_mushroom", "name": "Chilli Mushroom", "price": 130, "veg": true, "station": "st_wok", "tags": ["spicy"], "available": true, "prepMins": 12 },
+        { "id": "itm_sp_mushroom", "name": "Salt & Pepper Mushroom", "price": 130, "veg": true, "station": "st_wok", "tags": [], "available": true, "prepMins": 12 },
+        { "id": "itm_spring_potato", "name": "Spring Potato", "portion": "2 pc", "price": 80, "veg": true, "station": "st_fry", "tags": [], "available": false, "outOfStockReason": "Potato spirals out of stock", "prepMins": 9 },
+        { "id": "itm_chilli_paneer", "name": "Chilli Paneer", "portion": "10 pc", "price": 100, "veg": true, "station": "st_wok", "tags": ["bestseller"], "available": true, "prepMins": 12 }
+      ]
+    },
+    {
+      "id": "cat_starters_nonveg",
+      "name": "Starters",
+      "subtitle": "Non-Veg",
+      "slug": "starters-non-veg",
+      "dietary": "non-veg",
+      "station": "st_fry",
+      "sort": 2,
+      "items": [
+        { "id": "itm_lollipop", "name": "Chicken Lollipop", "portion": "4 pc", "price": 90, "veg": false, "station": "st_fry", "tags": ["bestseller"], "available": true, "prepMins": 14 },
+        { "id": "itm_doh", "name": "Drums of Heaven", "portion": "4 pc", "price": 130, "veg": false, "station": "st_fry", "tags": ["spicy"], "available": true, "prepMins": 14 },
+        { "id": "itm_dry_chilli_chicken", "name": "Dry Chilli Chicken", "portion": "8 pc", "price": 150, "veg": false, "station": "st_wok", "tags": ["spicy", "bestseller"], "available": true, "prepMins": 15 },
+        { "id": "itm_sp_chicken", "name": "Salt & Pepper Chicken", "portion": "8 pc", "price": 150, "veg": false, "station": "st_wok", "tags": [], "available": true, "prepMins": 15 },
+        { "id": "itm_dry_honey_chicken", "name": "Dry Honey Chicken", "portion": "8 pc", "price": 160, "veg": false, "station": "st_wok", "tags": ["sweet"], "available": true, "prepMins": 15 },
+        { "id": "itm_dragon_chicken", "name": "Dragon Chicken", "portion": "10 pc", "price": 160, "veg": false, "station": "st_wok", "tags": ["spicy", "chef-special"], "available": true, "prepMins": 16 },
+        { "id": "itm_fish_finger", "name": "Fish Finger", "portion": "6 pc", "price": null, "pendingPrice": true, "veg": false, "station": "st_fry", "tags": [], "available": false, "prepMins": 14 },
+        { "id": "itm_fish_fry", "name": "Fish Fry", "price": null, "pendingPrice": true, "veg": false, "station": "st_fry", "tags": ["bengali"], "available": false, "prepMins": 16 },
+        { "id": "itm_fish_ball", "name": "Fish Ball", "portion": "4 pc", "price": null, "pendingPrice": true, "veg": false, "station": "st_fry", "tags": [], "available": false, "prepMins": 12 }
+      ]
+    },
+    {
+      "id": "cat_chicken_gravy",
+      "name": "Chicken · Gravy",
+      "subtitle": "Non-Veg",
+      "slug": "chicken-gravy",
+      "dietary": "non-veg",
+      "station": "st_wok",
+      "sort": 3,
+      "items": [
+        { "id": "itm_chilli_chicken", "name": "Chilli Chicken", "portion": "8 pc", "price": 140, "veg": false, "station": "st_wok", "tags": ["bestseller", "spicy"], "available": true, "prepMins": 16 },
+        { "id": "itm_chicken_manchurian", "name": "Chicken Manchurian", "portion": "6 pc", "price": 120, "veg": false, "station": "st_wok", "tags": [], "available": true, "prepMins": 16 },
+        { "id": "itm_schezwan_chicken", "name": "Schezwan Chicken", "portion": "8 pc", "price": 160, "veg": false, "station": "st_wok", "tags": ["spicy"], "available": true, "prepMins": 16 },
+        { "id": "itm_hot_garlic_chicken", "name": "Hot Garlic Chicken", "portion": "8 pc", "price": 150, "veg": false, "station": "st_wok", "tags": [], "available": true, "prepMins": 16 },
+        { "id": "itm_shanghai_chicken", "name": "Shanghai Chicken", "portion": "8 pc", "price": 160, "veg": false, "station": "st_wok", "tags": [], "available": true, "prepMins": 17 },
+        { "id": "itm_chicken_satay", "name": "Chicken Satay", "portion": "4 stick", "price": 180, "veg": false, "station": "st_tandoor", "tags": ["chef-special"], "available": true, "prepMins": 18 },
+        { "id": "itm_chicken_65", "name": "Chicken 65", "portion": "8 pc", "price": 130, "veg": false, "station": "st_fry", "tags": ["spicy"], "available": true, "prepMins": 15 },
+        { "id": "itm_honey_chicken", "name": "Honey Chicken", "portion": "8 pc", "price": 130, "veg": false, "station": "st_wok", "tags": ["sweet"], "available": true, "prepMins": 15 },
+        { "id": "itm_sweet_sour_chicken", "name": "Sweet & Sour Chicken", "portion": "8 pc", "price": 150, "veg": false, "station": "st_wok", "tags": [], "available": true, "prepMins": 16 },
+        { "id": "itm_roasted_chilli_chicken", "name": "Roasted Chilli Chicken", "portion": "8 pc", "price": 160, "veg": false, "station": "st_wok", "tags": ["spicy"], "available": true, "prepMins": 17 }
+      ]
+    },
+    {
+      "id": "cat_fried_rice",
+      "name": "Fried Rice",
+      "subtitle": "Veg & Non-Veg",
+      "slug": "fried-rice",
+      "dietary": "mixed",
+      "station": "st_rice",
+      "sort": 4,
+      "items": [
+        { "id": "itm_fr_veg", "name": "Veg", "price": 50, "veg": true, "station": "st_rice", "tags": ["value"], "available": true, "prepMins": 10 },
+        { "id": "itm_fr_egg", "name": "Egg", "price": 70, "veg": false, "station": "st_rice", "tags": [], "available": true, "prepMins": 10 },
+        { "id": "itm_fr_mix", "name": "Mix", "price": 120, "veg": false, "station": "st_rice", "tags": ["bestseller"], "available": true, "prepMins": 12 },
+        { "id": "itm_fr_schezwan", "name": "Schezwan", "portion": "Chicken", "price": 140, "veg": false, "station": "st_rice", "tags": ["spicy"], "available": true, "prepMins": 12 },
+        { "id": "itm_fr_hongkong", "name": "Hong Kong", "price": 140, "veg": false, "station": "st_rice", "tags": [], "available": true, "prepMins": 12 },
+        { "id": "itm_fr_hot_garlic", "name": "Hot Garlic", "price": 130, "veg": false, "station": "st_rice", "tags": [], "available": true, "prepMins": 12 },
+        { "id": "itm_fr_singapore", "name": "Singapore", "price": 130, "veg": false, "station": "st_rice", "tags": [], "available": true, "prepMins": 12 },
+        { "id": "itm_fr_manchurian", "name": "Manchurian", "price": 130, "veg": false, "station": "st_rice", "tags": [], "available": true, "prepMins": 12 },
+        { "id": "itm_fr_chicken", "name": "Chicken", "price": 100, "veg": false, "station": "st_rice", "tags": ["bestseller"], "available": true, "prepMins": 11 }
+      ]
+    },
+    {
+      "id": "cat_hakka_noodles",
+      "name": "Hakka Noodles",
+      "subtitle": "Veg & Non-Veg",
+      "slug": "hakka-noodles",
+      "dietary": "mixed",
+      "station": "st_wok",
+      "sort": 5,
+      "items": [
+        { "id": "itm_hn_veg", "name": "Veg", "price": 60, "veg": true, "station": "st_wok", "tags": [], "available": true, "prepMins": 10 },
+        { "id": "itm_hn_egg", "name": "Egg", "price": 70, "veg": false, "station": "st_wok", "tags": [], "available": true, "prepMins": 10 },
+        { "id": "itm_hn_mix", "name": "Mix", "price": 110, "veg": false, "station": "st_wok", "tags": ["bestseller"], "available": true, "prepMins": 12 },
+        { "id": "itm_hn_schezwan", "name": "Schezwan", "portion": "Chicken", "price": 120, "veg": false, "station": "st_wok", "tags": ["spicy"], "available": true, "prepMins": 12 },
+        { "id": "itm_hn_hongkong", "name": "Hong Kong", "price": 120, "veg": false, "station": "st_wok", "tags": [], "available": true, "prepMins": 12 },
+        { "id": "itm_hn_hot_garlic", "name": "Hot Garlic", "price": 80, "veg": false, "station": "st_wok", "tags": ["value"], "available": true, "prepMins": 11 },
+        { "id": "itm_hn_singapore", "name": "Singapore", "price": 110, "veg": false, "station": "st_wok", "tags": [], "available": true, "prepMins": 12 },
+        { "id": "itm_hn_manchurian", "name": "Manchurian", "price": 110, "veg": false, "station": "st_wok", "tags": [], "available": true, "prepMins": 12 },
+        { "id": "itm_hn_chicken", "name": "Chicken", "price": 90, "veg": false, "station": "st_wok", "tags": [], "available": true, "prepMins": 11 }
+      ]
+    },
+    {
+      "id": "cat_momo",
+      "name": "Momo",
+      "subtitle": "Veg & Chicken",
+      "slug": "momo",
+      "dietary": "mixed",
+      "station": "st_fry",
+      "sort": 6,
+      "variantAxis": {
+        "id": "style",
+        "name": "Style",
+        "required": true,
+        "options": [{ "id": "steam", "name": "Steam" }, { "id": "fry", "name": "Fry" }, { "id": "panfry", "name": "Pan Fry" }]
+      },
+      "items": [
+        { "id": "itm_momo_veg", "name": "Veg", "veg": true, "station": "st_fry", "tags": [], "available": true, "prepMins": 12,
+          "variants": [{ "id": "steam", "name": "Steam", "price": 50 }, { "id": "fry", "name": "Fry", "price": 60 }, { "id": "panfry", "name": "Pan Fry", "price": 70 }] },
+        { "id": "itm_momo_chicken", "name": "Chicken", "veg": false, "station": "st_fry", "tags": ["bestseller"], "available": true, "prepMins": 13,
+          "variants": [{ "id": "steam", "name": "Steam", "price": 70 }, { "id": "fry", "name": "Fry", "price": 80 }, { "id": "panfry", "name": "Pan Fry", "price": 90 }] }
+      ]
+    },
+    {
+      "id": "cat_rolls",
+      "name": "Rolls",
+      "subtitle": "Veg & Non-Veg",
+      "slug": "rolls",
+      "dietary": "mixed",
+      "station": "st_tandoor",
+      "sort": 7,
+      "items": [
+        { "id": "itm_roll_veg", "name": "Veg Roll", "price": 30, "veg": true, "station": "st_tandoor", "tags": ["value"], "available": true, "prepMins": 7 },
+        { "id": "itm_roll_egg", "name": "Egg Roll", "price": 40, "veg": false, "station": "st_tandoor", "tags": ["bestseller"], "available": true, "prepMins": 7 },
+        { "id": "itm_roll_chicken", "name": "Chicken Roll", "price": 70, "veg": false, "station": "st_tandoor", "tags": ["bestseller"], "available": true, "prepMins": 9 },
+        { "id": "itm_roll_egg_chicken", "name": "Egg Chicken Roll", "price": 80, "veg": false, "station": "st_tandoor", "tags": ["bestseller"], "available": true, "prepMins": 9 },
+        { "id": "itm_roll_paneer", "name": "Paneer Roll", "price": 50, "veg": true, "station": "st_tandoor", "tags": [], "available": true, "prepMins": 8 }
+      ]
+    },
+    {
+      "id": "cat_biriyani",
+      "name": "Biriyani",
+      "subtitle": "Veg & Non-Veg",
+      "slug": "biriyani",
+      "dietary": "mixed",
+      "station": "st_rice",
+      "sort": 8,
+      "items": [
+        { "id": "itm_bir_aloo", "name": "Aloo Biriyani", "price": 70, "veg": true, "station": "st_rice", "tags": ["kolkata"], "available": true, "prepMins": 10 },
+        { "id": "itm_bir_egg", "name": "Egg Biriyani", "price": 80, "veg": false, "station": "st_rice", "tags": [], "available": true, "prepMins": 10 },
+        { "id": "itm_bir_chicken", "name": "Chicken Biriyani", "price": 110, "veg": false, "station": "st_rice", "tags": ["bestseller", "kolkata"], "available": true, "prepMins": 12 },
+        { "id": "itm_bir_special", "name": "Special Chicken Biriyani", "price": 150, "veg": false, "station": "st_rice", "tags": ["chef-special"], "available": true, "prepMins": 14 }
+      ]
+    },
+    {
+      "id": "cat_moghlai",
+      "name": "Moghlai",
+      "subtitle": "Egg & Chicken",
+      "slug": "moghlai",
+      "dietary": "non-veg",
+      "station": "st_tandoor",
+      "sort": 9,
+      "items": [
+        { "id": "itm_mog_egg", "name": "Egg Moghlai", "price": 80, "veg": false, "station": "st_tandoor", "tags": ["kolkata"], "available": true, "prepMins": 12 },
+        { "id": "itm_mog_chicken", "name": "Chicken Moghlai", "price": 130, "veg": false, "station": "st_tandoor", "tags": ["bestseller"], "available": true, "prepMins": 14 },
+        { "id": "itm_mog_special", "name": "Special Moghlai", "price": 150, "veg": false, "station": "st_tandoor", "tags": ["chef-special"], "available": true, "prepMins": 15 },
+        { "id": "itm_chicken_chaap", "name": "Chicken Chaap", "price": 70, "veg": false, "station": "st_tandoor", "tags": ["kolkata", "new"], "available": false, "draft": true, "prepMins": 18, "annotation": { "text": "Handwritten on card: Chicken chaap -> 70", "suggestedPrice": 70, "status": "needs-confirmation" } }
+      ]
+    },
+    {
+      "id": "cat_salad",
+      "name": "Salad",
+      "subtitle": "Veg",
+      "slug": "salad",
+      "dietary": "veg",
+      "station": "st_cold",
+      "sort": 10,
+      "items": [
+        { "id": "itm_salad_onion", "name": "Onion Salad", "price": 30, "veg": true, "station": "st_cold", "tags": [], "available": true, "prepMins": 3 },
+        { "id": "itm_salad_cucumber", "name": "Cucumber Salad", "price": 40, "veg": true, "station": "st_cold", "tags": [], "available": true, "prepMins": 3 },
+        { "id": "itm_salad_green", "name": "Green Salad", "price": 50, "veg": true, "station": "st_cold", "tags": [], "available": true, "prepMins": 4 }
+      ]
+    },
+    {
+      "id": "cat_drinks",
+      "name": "Drinks & Ice Cream",
+      "subtitle": "",
+      "slug": "drinks-ice-cream",
+      "dietary": "veg",
+      "station": "st_cold",
+      "sort": 11,
+      "items": [
+        { "id": "itm_water_500", "name": "Mineral Water", "portion": "500 ml", "price": null, "pendingPrice": true, "veg": true, "station": "st_cold", "tags": [], "available": false, "prepMins": 1 },
+        { "id": "itm_water_1000", "name": "Mineral Water", "portion": "1 litre", "price": null, "pendingPrice": true, "veg": true, "station": "st_cold", "tags": [], "available": false, "prepMins": 1 },
+        { "id": "itm_cold_drinks", "name": "Cold Drinks", "price": null, "pendingPrice": true, "veg": true, "station": "st_cold", "tags": [], "available": false, "prepMins": 1 },
+        { "id": "itm_ic_vanilla", "name": "Ice Cream - Vanilla", "price": null, "pendingPrice": true, "veg": true, "station": "st_cold", "tags": ["dessert"], "available": false, "prepMins": 2 },
+        { "id": "itm_ic_strawberry", "name": "Ice Cream - Strawberry", "price": null, "pendingPrice": true, "veg": true, "station": "st_cold", "tags": ["dessert"], "available": false, "prepMins": 2 },
+        { "id": "itm_ic_chocolate", "name": "Ice Cream - Chocolate", "price": null, "pendingPrice": true, "veg": true, "station": "st_cold", "tags": ["dessert"], "available": false, "prepMins": 2 },
+        { "id": "itm_ic_2in1", "name": "Ice Cream - 2 in One", "price": null, "pendingPrice": true, "veg": true, "station": "st_cold", "tags": ["dessert"], "available": false, "prepMins": 2 },
+        { "id": "itm_ic_mango", "name": "Ice Cream - Mango", "price": null, "pendingPrice": true, "veg": true, "station": "st_cold", "tags": ["dessert"], "available": false, "prepMins": 2 }
+      ]
+    },
+    {
+      "id": "cat_tea_coffee",
+      "name": "Tea & Coffee",
+      "subtitle": "",
+      "slug": "tea-coffee",
+      "dietary": "veg",
+      "station": "st_cha",
+      "sort": 12,
+      "items": [
+        { "id": "itm_tea_normal", "name": "Tea - Normal", "price": 10, "veg": true, "station": "st_cha", "tags": ["adda"], "available": true, "prepMins": 4, "annotation": { "text": "Handwritten on card: 10", "suggestedPrice": 10, "status": "applied" } },
+        { "id": "itm_tea_special", "name": "Tea - Special", "price": 15, "veg": true, "station": "st_cha", "tags": ["adda", "bestseller"], "available": true, "prepMins": 5, "annotation": { "text": "Handwritten on card: 15", "suggestedPrice": 15, "status": "applied" } },
+        { "id": "itm_coffee_normal", "name": "Coffee - Normal", "price": 20, "veg": true, "station": "st_cha", "tags": ["adda"], "available": true, "prepMins": 4, "annotation": { "text": "Handwritten on card: 20", "suggestedPrice": 20, "status": "applied" } },
+        { "id": "itm_coffee_special", "name": "Coffee - Special", "price": 25, "veg": true, "station": "st_cha", "tags": ["adda"], "available": true, "prepMins": 5, "annotation": { "text": "Handwritten on card: 25", "suggestedPrice": 25, "status": "applied" } }
+      ]
+    }
+  ],
+  "modifierGroups": [
+    {
+      "id": "mg_spice", "name": "Spice level", "min": 0, "max": 1, "appliesTo": ["tag:spicy"],
+      "options": [{ "id": "mild", "name": "Mild", "price": 0 }, { "id": "medium", "name": "Medium", "price": 0 }, { "id": "hot", "name": "Kolkata hot", "price": 0 }]
+    },
+    {
+      "id": "mg_addons", "name": "Add-ons", "min": 0, "max": 3, "appliesTo": ["cat_rolls", "cat_biriyani", "cat_moghlai"],
+      "options": [{ "id": "extra_egg", "name": "Extra egg", "price": 15 }, { "id": "extra_chicken", "name": "Extra chicken", "price": 40 }, { "id": "extra_salad", "name": "Extra onion salad", "price": 10 }, { "id": "extra_gravy", "name": "Extra gravy", "price": 20 }]
+    },
+    {
+      "id": "mg_cha", "name": "Cha preference", "min": 0, "max": 2, "appliesTo": ["cat_tea_coffee"],
+      "options": [{ "id": "less_sugar", "name": "Less sugar", "price": 0 }, { "id": "no_sugar", "name": "No sugar", "price": 0 }, { "id": "kadak", "name": "Kadak (extra liquor)", "price": 5 }]
+    }
+  ],
+  "combos": [
+    { "id": "combo_adda", "name": "Adda Combo", "description": "Chicken Roll + Tea Special", "items": ["itm_roll_chicken", "itm_tea_special"], "price": 75, "saves": 10, "available": true },
+    { "id": "combo_bhoj", "name": "Bhoj Combo", "description": "Chicken Biriyani + Chilli Chicken (8 pc)", "items": ["itm_bir_chicken", "itm_chilli_chicken"], "price": 230, "saves": 20, "available": true },
+    { "id": "combo_niramish", "name": "Niramish Adda", "description": "Veg Hakka Noodles + Chilli Paneer", "items": ["itm_hn_veg", "itm_chilli_paneer"], "price": 145, "saves": 15, "available": true }
+  ]
+}

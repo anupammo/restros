@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "description": "Platform-level tenant registry. Powers the tenant switcher, the platform admin console and the billing screens.",
+    "generatedAt": "2026-08-27"
+  },
+  "plans": [
+    { "id": "plan_starter", "name": "Starter", "price": 1499, "period": "month", "outlets": 1, "features": ["POS", "KDS", "Digital menu", "Daily reports"], "seats": 5 },
+    { "id": "plan_growth", "name": "Growth", "price": 3999, "period": "month", "outlets": 3, "features": ["Everything in Starter", "Inventory", "Loyalty & CRM", "Online order sync", "Offline mode"], "seats": 20, "popular": true },
+    { "id": "plan_scale", "name": "Scale", "price": 9999, "period": "month", "outlets": 15, "features": ["Everything in Growth", "Central kitchen", "Franchise controls", "Custom roles", "API + webhooks", "Priority support"], "seats": 100 },
+    { "id": "plan_enterprise", "name": "Enterprise", "price": null, "period": "month", "outlets": null, "features": ["Everything in Scale", "SSO / SAML", "Dedicated region", "SLA 99.95%", "Solution architect"], "seats": null }
+  ],
+  "tenants": [
+    {
+      "id": "t_adda", "name": "Cafe Adda Khana", "slug": "adda-khana", "logoText": "AK",
+      "city": "Kolkata", "country": "IN", "plan": "plan_growth", "status": "active",
+      "createdAt": "2026-02-11", "outlets": 2, "seats": 11, "mrr": 3999,
+      "brand": { "primary": "#0E3B2E", "accent": "#D8402A" },
+      "health": 92, "ordersToday": 148, "gmvMonth": 486300, "churnRisk": "low",
+      "modules": ["pos", "kds", "menu", "tables", "inventory", "crm", "reports"]
+    },
+    {
+      "id": "t_tandoor", "name": "Tandoor Junction", "slug": "tandoor-junction", "logoText": "TJ",
+      "city": "Delhi", "country": "IN", "plan": "plan_scale", "status": "active",
+      "createdAt": "2025-08-02", "outlets": 7, "seats": 63, "mrr": 9999,
+      "brand": { "primary": "#3A1F5C", "accent": "#F0A202" },
+      "health": 88, "ordersToday": 612, "gmvMonth": 2841000, "churnRisk": "low",
+      "modules": ["pos", "kds", "menu", "tables", "inventory", "crm", "reports", "franchise"]
+    },
+    {
+      "id": "t_filter", "name": "Filter & Co.", "slug": "filter-co", "logoText": "FC",
+      "city": "Bengaluru", "country": "IN", "plan": "plan_starter", "status": "trialing",
+      "createdAt": "2026-08-14", "outlets": 1, "seats": 4, "mrr": 0, "trialEndsAt": "2026-09-13",
+      "brand": { "primary": "#5B3A29", "accent": "#C97B3F" },
+      "health": 64, "ordersToday": 87, "gmvMonth": 112400, "churnRisk": "medium",
+      "modules": ["pos", "kds", "menu", "reports"]
+    },
+    {
+      "id": "t_coastal", "name": "Coastal Table", "slug": "coastal-table", "logoText": "CT",
+      "city": "Goa", "country": "IN", "plan": "plan_growth", "status": "active",
+      "createdAt": "2025-11-20", "outlets": 3, "seats": 22, "mrr": 3999,
+      "brand": { "primary": "#0B3C49", "accent": "#22B8CF" },
+      "health": 79, "ordersToday": 203, "gmvMonth": 921500, "churnRisk": "low",
+      "modules": ["pos", "kds", "menu", "tables", "inventory", "reports"]
+    },
+    {
+      "id": "t_biryani_bros", "name": "Biryani Bros", "slug": "biryani-bros", "logoText": "BB",
+      "city": "Hyderabad", "country": "IN", "plan": "plan_growth", "status": "past_due",
+      "createdAt": "2025-05-09", "outlets": 3, "seats": 18, "mrr": 3999,
+      "brand": { "primary": "#4A1D1D", "accent": "#E8552D" },
+      "health": 41, "ordersToday": 0, "gmvMonth": 388000, "churnRisk": "high",
+      "modules": ["pos", "kds", "menu", "inventory", "reports"],
+      "flags": ["invoice_overdue_11d", "no_activity_3d"]
+    },
+    {
+      "id": "t_noodle", "name": "Noodle Theory", "slug": "noodle-theory", "logoText": "NT",
+      "city": "Mumbai", "country": "IN", "plan": "plan_scale", "status": "active",
+      "createdAt": "2024-12-01", "outlets": 12, "seats": 94, "mrr": 9999,
+      "brand": { "primary": "#1C2541", "accent": "#5BC0BE" },
+      "health": 95, "ordersToday": 1104, "gmvMonth": 5210000, "churnRisk": "low",
+      "modules": ["pos", "kds", "menu", "tables", "inventory", "crm", "reports", "franchise", "api"]
+    },
+    {
+      "id": "t_sundar", "name": "Sundar Sweets", "slug": "sundar-sweets", "logoText": "SS",
+      "city": "Jaipur", "country": "IN", "plan": "plan_starter", "status": "suspended",
+      "createdAt": "2025-03-17", "outlets": 1, "seats": 3, "mrr": 0,
+      "brand": { "primary": "#6A2C70", "accent": "#F08A5D" },
+      "health": 18, "ordersToday": 0, "gmvMonth": 0, "churnRisk": "churned",
+      "modules": ["pos", "menu"],
+      "flags": ["payment_failed_x3", "suspended_2026_07_30"]
+    }
+  ],
+  "platformStats": {
+    "mrr": 31995, "mrrDeltaPct": 8.4,
+    "activeTenants": 5, "trialing": 1, "suspended": 1,
+    "ordersToday": 2154, "gmvMonth": 9959200,
+    "uptimePct": 99.98, "p95LatencyMs": 143,
+    "openIncidents": 0,
+    "signupsThisWeek": [3, 5, 2, 6, 4, 8, 7]
+  },
+  "activity": [
+    { "at": "2026-08-27T09:41:00+05:30", "tenant": "t_filter", "actor": "system", "event": "trial.reminder_sent", "detail": "17 days left on Starter trial" },
+    { "at": "2026-08-27T08:12:00+05:30", "tenant": "t_biryani_bros", "actor": "billing", "event": "invoice.past_due", "detail": "INV-2026-0812 overdue by 11 days" },
+    { "at": "2026-08-26T22:05:00+05:30", "tenant": "t_noodle", "actor": "priya@noodletheory.in", "event": "outlet.created", "detail": "Andheri West (outlet #12)" },
+    { "at": "2026-08-26T19:30:00+05:30", "tenant": "t_adda", "actor": "anupam@addakhana.in", "event": "menu.published", "detail": "v14 - 4 price updates from the printed card" },
+    { "at": "2026-08-26T14:02:00+05:30", "tenant": "t_coastal", "actor": "system", "event": "plan.upgraded", "detail": "Starter to Growth" }
+  ]
+}

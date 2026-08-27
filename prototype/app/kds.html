@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kitchen Display · RestrOS</title>
+<meta name="description" content="RestrOS kitchen display system — station rails, live timers, one-tap bump.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/app.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍🍳</text></svg>">
+</head>
+<!--
+  The KDS is deliberately locked to the dark theme and rendered without the
+  console shell: it runs full-screen on a wall-mounted screen in a bright
+  kitchen, is operated with gloved hands, and must never navigate away by
+  accident. Everything is one tap: bump, recall, 86.
+-->
+<body class="kds">
+
+<header class="kds-bar">
+  <a class="btn btn-ghost btn-icon btn-sm" href="dashboard.html" aria-label="Back to console">
+    <svg class="icon"><use href="../assets/icons/sprite.svg#i-arrow-left"></use></svg>
+  </a>
+  <div class="row gap-2">
+    <svg class="icon icon-lg" style="color:var(--chilli-400)"><use href="../assets/icons/sprite.svg#i-kds"></use></svg>
+    <b class="display" style="font-size:var(--text-lg)">Kitchen Display</b>
+  </div>
+
+  <div class="segmented" id="stationFilter" role="group" aria-label="Station" style="background:rgba(255,255,255,.06)"></div>
+
+  <div class="grow"></div>
+
+  <div class="kds-stat"><b id="kdsActive">—</b><span>on the pass</span></div>
+  <div class="kds-stat"><b id="kdsLate">—</b><span>running late</span></div>
+  <div class="kds-stat"><b id="kdsAvg">—</b><span>avg ticket time</span></div>
+  <div class="divider-v" style="height:32px"></div>
+  <div class="kds-clock" id="kdsClock">20:12</div>
+  <button class="btn btn-ghost btn-icon" id="kdsFull" data-tip="Full screen" aria-label="Full screen">
+    <svg class="icon"><use href="../assets/icons/sprite.svg#i-monitor"></use></svg>
+  </button>
+</header>
+
+<main class="kds-board" id="kdsBoard" aria-label="Open tickets"></main>
+
+<script type="module" src="../assets/js/kds.js"></script>
+</body>
+</html>

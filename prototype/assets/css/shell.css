@@ -1,0 +1,263 @@
+/* ============================================================================
+   RestrOS — Application shell
+   Sidebar + glass topbar + content column. Rendered by assets/js/shell.js so
+   every console page stays a thin content file.
+   ========================================================================== */
+
+.app {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+  min-height: 100dvh;
+  transition: grid-template-columns var(--dur-slow) var(--ease-spring);
+}
+.app[data-sidebar='collapsed'] { grid-template-columns: var(--sidebar-w-collapsed) minmax(0, 1fr); }
+
+/* ------------------------------------------------------------------ SIDEBAR */
+.app-sidebar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sidebar);
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface);
+  border-right: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.tenant-switch {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: calc(100% - var(--space-4));
+  margin: var(--space-3) var(--space-2);
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  text-align: left;
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+.tenant-switch:hover { background: var(--bg-hover); }
+.tenant-mark {
+  display: grid;
+  place-items: center;
+  width: 34px; height: 34px;
+  border-radius: 10px;
+  background: var(--brand);
+  color: var(--brand-fg);
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-black);
+  letter-spacing: 0;
+  flex-shrink: 0;
+  box-shadow: var(--highlight-top);
+}
+.tenant-meta { min-width: 0; display: flex; flex-direction: column; }
+.tenant-name {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.tenant-plan { font-size: var(--text-2xs); color: var(--text-tertiary); }
+.tenant-switch .icon { margin-left: auto; color: var(--text-quaternary); width: 14px; height: 14px; }
+
+.nav { flex: 1; overflow-y: auto; padding: var(--space-2); display: flex; flex-direction: column; gap: 1px; }
+.nav-group-label {
+  padding: var(--space-4) var(--space-3) var(--space-2);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--text-quaternary);
+}
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  height: 36px;
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--text-secondary);
+  white-space: nowrap;
+  transition: var(--t-color);
+}
+.nav-item:hover { background: var(--bg-hover); color: var(--text-primary); }
+.nav-item .icon { width: 1.125rem; height: 1.125rem; color: var(--text-tertiary); transition: var(--t-color); }
+.nav-item[aria-current='page'] {
+  background: var(--bg-selected);
+  color: var(--text-primary);
+  font-weight: var(--weight-semibold);
+}
+.nav-item[aria-current='page'] .icon { color: var(--brand); }
+.nav-item[aria-current='page']::before {
+  content: '';
+  position: absolute;
+  left: -8px; top: 50%;
+  translate: 0 -50%;
+  width: 3px; height: 18px;
+  border-radius: 0 3px 3px 0;
+  background: var(--brand);
+}
+.nav-item .pill {
+  margin-left: auto;
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: var(--accent-fg);
+  font-size: 10px;
+  font-weight: var(--weight-bold);
+  font-variant-numeric: tabular-nums;
+}
+.nav-item .pill-muted { background: var(--neutral-soft); color: var(--neutral-soft-fg); }
+
+.sidebar-foot {
+  padding: var(--space-2);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+/* Collapsed state: icons only. */
+.app[data-sidebar='collapsed'] .tenant-meta,
+.app[data-sidebar='collapsed'] .tenant-switch > .icon,
+.app[data-sidebar='collapsed'] .nav-item span,
+.app[data-sidebar='collapsed'] .nav-item .pill,
+.app[data-sidebar='collapsed'] .nav-group-label { display: none; }
+.app[data-sidebar='collapsed'] .nav-item { justify-content: center; padding-inline: 0; }
+.app[data-sidebar='collapsed'] .tenant-switch { justify-content: center; }
+.app[data-sidebar='collapsed'] .nav-group-label { height: var(--space-4); }
+
+/* ------------------------------------------------------------------ TOPBAR */
+.app-col { display: flex; flex-direction: column; min-width: 0; }
+
+.app-topbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-topbar);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  height: var(--topbar-h);
+  padding-inline: var(--space-5);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.topbar-title { display: flex; flex-direction: column; min-width: 0; }
+.topbar-title h1 {
+  font-size: var(--text-md);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.2;
+}
+.topbar-title .crumb { font-size: var(--text-2xs); color: var(--text-tertiary); }
+
+.searchbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: min(320px, 32vw);
+  height: 34px;
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--bg-inset);
+  box-shadow: var(--ring-inset);
+  color: var(--text-quaternary);
+  font-size: var(--text-sm);
+  transition: box-shadow var(--dur-fast) var(--ease-out);
+}
+.searchbar:hover { box-shadow: inset 0 0 0 1px var(--border-default); }
+.searchbar .icon { width: 1rem; height: 1rem; }
+.searchbar kbd { margin-left: auto; }
+
+.outlet-pick {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 34px;
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--text-secondary);
+  box-shadow: var(--ring-inset);
+  transition: var(--t-color);
+}
+.outlet-pick:hover { background: var(--bg-hover); color: var(--text-primary); }
+
+.shift-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 34px;
+  padding-inline: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--success-soft);
+  color: var(--success-soft-fg);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+}
+
+/* ------------------------------------------------------------------ MAIN */
+.app-main {
+  container-type: inline-size;
+  flex: 1;
+  padding: var(--space-5);
+  min-width: 0;
+}
+.app-main-flush { padding: 0; }
+
+.page-head {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-5);
+}
+.page-head h2 {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tighter);
+}
+.page-head p { font-size: var(--text-sm); color: var(--text-tertiary); margin-top: 2px; }
+.page-actions { margin-left: auto; display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; }
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-4);
+}
+
+/* ------------------------------------------------------------------ RESPONSIVE */
+@media (max-width: 1024px) {
+  .app { grid-template-columns: minmax(0, 1fr); }
+  .app-sidebar {
+    position: fixed;
+    left: 0; top: 0;
+    width: var(--sidebar-w);
+    transform: translateX(-100%);
+    transition: transform var(--dur-slow) var(--ease-spring);
+    box-shadow: var(--shadow-xl);
+  }
+  .app[data-sidebar='open'] .app-sidebar { transform: translateX(0); }
+  .app[data-sidebar='collapsed'] { grid-template-columns: minmax(0, 1fr); }
+  .app[data-sidebar='collapsed'] .app-sidebar .nav-item span,
+  .app[data-sidebar='collapsed'] .app-sidebar .tenant-meta,
+  .app[data-sidebar='collapsed'] .app-sidebar .nav-group-label { display: revert; }
+  .app[data-sidebar='collapsed'] .nav-item { justify-content: flex-start; padding-inline: var(--space-3); }
+  .searchbar { width: auto; }
+  .searchbar span, .searchbar kbd { display: none; }
+}
+@media (min-width: 1025px) { .sidebar-toggle-mobile { display: none; } }
+@media (max-width: 720px) {
+  .app-main { padding: var(--space-4) var(--space-3); }
+  .hide-sm { display: none !important; }
+  .page-head h2 { font-size: var(--text-xl); }
+}

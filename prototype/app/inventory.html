@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inventory · RestrOS</title>
+<script>try{var t=JSON.parse(localStorage.getItem('restros:theme'));if(t&&t!=='system')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/app.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="app" id="app">
+  <div class="app-col">
+    <main class="app-main" id="main">
+      <div class="page-head">
+        <div>
+          <h2>Inventory</h2>
+          <p>Last stock count 26 Aug, 23:40 · weighted-average valuation</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-secondary btn-sm" id="btnCount">
+            <svg class="icon"><use href="../assets/icons/sprite.svg#i-list"></use></svg>Start stock count
+          </button>
+          <button class="btn btn-primary btn-sm" id="btnPO">
+            <svg class="icon"><use href="../assets/icons/sprite.svg#i-plus"></use></svg>Purchase order
+          </button>
+        </div>
+      </div>
+
+      <div id="invAlert" class="mb-5"></div>
+      <div class="bento mb-5" id="invStats"></div>
+
+      <div class="bento">
+        <section class="col-8 card">
+          <div class="toolbar" style="padding:var(--space-3) var(--space-4);margin:0;border-bottom:1px solid var(--border-subtle)">
+            <h3 class="t-base">Stock on hand</h3>
+            <div class="segmented" id="invFilter" role="group">
+              <button data-f="all" aria-selected="true">All</button>
+              <button data-f="low">Below par</button>
+              <button data-f="out">Out of stock</button>
+            </div>
+            <span class="grow"></span>
+            <div class="input-group" style="max-width:220px">
+              <svg class="icon"><use href="../assets/icons/sprite.svg#i-search"></use></svg>
+              <input class="input" id="invSearch" type="search" placeholder="Search ingredient…">
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="data">
+              <thead><tr>
+                <th>Ingredient</th><th>Station</th><th class="col-num">On hand</th><th class="col-num">Par</th>
+                <th style="width:130px">Cover</th><th class="col-num">Value</th><th>Status</th><th></th>
+              </tr></thead>
+              <tbody id="invRows"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="col-4 stack gap-4">
+          <div class="card">
+            <div class="card-header"><h3>Purchase orders</h3>
+              <span class="ml-auto t-xs dim" id="poCount"></span></div>
+            <div id="poList"></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3>Recipe cost</h3>
+              <span class="ml-auto t-xs dim">margin per dish</span></div>
+            <div class="card-body stack gap-4" id="recipeList"></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3>Wastage today</h3></div>
+            <div id="wasteList"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script type="module" src="../assets/js/inventory.js"></script>
+</body>
+</html>

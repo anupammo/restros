@@ -1,0 +1,48 @@
+{
+  "meta": { "tenant": "t_adda", "description": "Users, roles and the RBAC permission matrix used by the Staff & Roles screen." },
+  "roles": [
+    { "id": "role_owner", "name": "Owner", "description": "Full control of the tenant, including billing and outlet creation.", "system": true, "members": 1, "color": "brand" },
+    { "id": "role_manager", "name": "Manager", "description": "Runs an outlet day to day. No billing or tenant deletion.", "system": true, "members": 2, "color": "info" },
+    { "id": "role_cashier", "name": "Cashier", "description": "Takes orders, settles bills, opens and closes the till.", "system": true, "members": 4, "color": "success" },
+    { "id": "role_waiter", "name": "Waiter", "description": "Table service: seat guests, punch KOTs, request bill.", "system": true, "members": 3, "color": "warning" },
+    { "id": "role_kitchen", "name": "Kitchen", "description": "Kitchen display only. Bump and recall tickets.", "system": true, "members": 3, "color": "accent" },
+    { "id": "role_accountant", "name": "Accountant (custom)", "description": "Read-only access to reports, invoices and tax exports.", "system": false, "members": 1, "color": "neutral" }
+  ],
+  "permissions": [
+    { "group": "Orders", "key": "order.create", "label": "Create orders / KOT", "roles": ["role_owner", "role_manager", "role_cashier", "role_waiter"] },
+    { "group": "Orders", "key": "order.void", "label": "Void an item or order", "roles": ["role_owner", "role_manager"] },
+    { "group": "Orders", "key": "order.discount", "label": "Apply discount", "roles": ["role_owner", "role_manager", "role_cashier"] },
+    { "group": "Orders", "key": "order.reprint", "label": "Reprint bill / KOT", "roles": ["role_owner", "role_manager", "role_cashier"] },
+    { "group": "Kitchen", "key": "kds.bump", "label": "Bump / recall tickets", "roles": ["role_owner", "role_manager", "role_kitchen"] },
+    { "group": "Kitchen", "key": "kds.eightysix", "label": "86 an item (mark sold out)", "roles": ["role_owner", "role_manager", "role_kitchen"] },
+    { "group": "Menu", "key": "menu.edit", "label": "Edit menu items and prices", "roles": ["role_owner", "role_manager"] },
+    { "group": "Menu", "key": "menu.publish", "label": "Publish menu version", "roles": ["role_owner"] },
+    { "group": "Cash", "key": "till.open", "label": "Open / close till", "roles": ["role_owner", "role_manager", "role_cashier"] },
+    { "group": "Cash", "key": "cash.drop", "label": "Record cash drop", "roles": ["role_owner", "role_manager"] },
+    { "group": "Inventory", "key": "inventory.adjust", "label": "Adjust stock", "roles": ["role_owner", "role_manager"] },
+    { "group": "Inventory", "key": "purchase.approve", "label": "Approve purchase order", "roles": ["role_owner"] },
+    { "group": "Insights", "key": "report.view", "label": "View reports", "roles": ["role_owner", "role_manager", "role_accountant"] },
+    { "group": "Insights", "key": "report.export", "label": "Export data / tax files", "roles": ["role_owner", "role_accountant"] },
+    { "group": "Admin", "key": "staff.manage", "label": "Invite and manage staff", "roles": ["role_owner", "role_manager"] },
+    { "group": "Admin", "key": "billing.manage", "label": "Manage subscription & billing", "roles": ["role_owner"] }
+  ],
+  "users": [
+    { "id": "u_anupam", "name": "Anupam Mondal", "initials": "AM", "email": "anupam@addakhana.in", "role": "role_owner", "outlets": ["out_adda_main", "out_adda_salt"], "status": "active", "lastActive": "2026-08-27T20:04:00+05:30", "pin": "set", "shift": null },
+    { "id": "u_deb", "name": "Debjani Roy", "initials": "DR", "email": "debjani@addakhana.in", "role": "role_manager", "outlets": ["out_adda_main"], "status": "active", "lastActive": "2026-08-27T20:11:00+05:30", "pin": "set", "shift": { "from": "15:00", "to": "23:30", "clockedIn": true } },
+    { "id": "u_riya", "name": "Riya Sen", "initials": "RS", "email": "riya@addakhana.in", "role": "role_waiter", "outlets": ["out_adda_main"], "status": "active", "lastActive": "2026-08-27T20:12:00+05:30", "pin": "set", "shift": { "from": "16:00", "to": "23:00", "clockedIn": true }, "covers": 22, "salesToday": 6480 },
+    { "id": "u_ansh", "name": "Anshuman Das", "initials": "AD", "email": "anshuman@addakhana.in", "role": "role_waiter", "outlets": ["out_adda_main"], "status": "active", "lastActive": "2026-08-27T20:09:00+05:30", "pin": "set", "shift": { "from": "16:00", "to": "23:00", "clockedIn": true }, "covers": 17, "salesToday": 4910 },
+    { "id": "u_sourav", "name": "Sourav Ghosh", "initials": "SG", "email": "sourav@addakhana.in", "role": "role_cashier", "outlets": ["out_adda_main"], "status": "active", "lastActive": "2026-08-27T20:12:00+05:30", "pin": "set", "shift": { "from": "11:00", "to": "20:00", "clockedIn": false } },
+    { "id": "u_babu", "name": "Babu-da", "initials": "BD", "email": "kitchen1@addakhana.in", "role": "role_kitchen", "outlets": ["out_adda_main"], "status": "active", "lastActive": "2026-08-27T20:12:00+05:30", "pin": "set", "shift": { "from": "11:00", "to": "23:30", "clockedIn": true }, "station": "st_wok" },
+    { "id": "u_montu", "name": "Montu Sk.", "initials": "MS", "email": "kitchen2@addakhana.in", "role": "role_kitchen", "outlets": ["out_adda_main"], "status": "active", "lastActive": "2026-08-27T20:10:00+05:30", "pin": "set", "shift": { "from": "11:00", "to": "23:30", "clockedIn": true }, "station": "st_tandoor" },
+    { "id": "u_paromita", "name": "Paromita Bose", "initials": "PB", "email": "paromita@addakhana.in", "role": "role_manager", "outlets": ["out_adda_salt"], "status": "active", "lastActive": "2026-08-27T19:52:00+05:30", "pin": "set", "shift": { "from": "12:00", "to": "23:30", "clockedIn": true } },
+    { "id": "u_ca", "name": "Nilanjan & Co.", "initials": "NC", "email": "ca@nilanjan.co.in", "role": "role_accountant", "outlets": ["out_adda_main", "out_adda_salt"], "status": "active", "lastActive": "2026-08-25T11:20:00+05:30", "pin": "none", "shift": null },
+    { "id": "u_new", "name": "Tanmay Pal", "initials": "TP", "email": "tanmay@addakhana.in", "role": "role_cashier", "outlets": ["out_adda_main"], "status": "invited", "lastActive": null, "pin": "none", "shift": null, "invitedAt": "2026-08-26T10:00:00+05:30" }
+  ],
+  "auditLog": [
+    { "at": "2026-08-27T20:02:00+05:30", "user": "u_deb", "action": "order.discount", "detail": "10% staff discount on ORD-2448", "severity": "notice" },
+    { "at": "2026-08-27T19:47:00+05:30", "user": "u_babu", "action": "kds.eightysix", "detail": "86'd Spring Potato - spirals finished", "severity": "info" },
+    { "at": "2026-08-27T19:20:00+05:30", "user": "u_anupam", "action": "menu.publish", "detail": "Published menu v14 (4 price changes)", "severity": "info" },
+    { "at": "2026-08-27T18:55:00+05:30", "user": "u_deb", "action": "order.void", "detail": "Voided 1x Chilli Chicken on ORD-2440 - guest changed mind", "severity": "warning" },
+    { "at": "2026-08-27T11:02:00+05:30", "user": "u_sourav", "action": "till.open", "detail": "Opening float ₹2,000", "severity": "info" }
+  ]
+}

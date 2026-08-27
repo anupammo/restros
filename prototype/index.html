@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RestrOS — the operating system for restaurants</title>
+<meta name="description" content="RestrOS runs the whole floor: POS, kitchen display, QR ordering, inventory, loyalty and reporting — multi-outlet, multi-tenant, offline-ready.">
+<script>try{var t=JSON.parse(localStorage.getItem('restros:theme'));if(t&&t!=='system')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="site-nav">
+  <a class="logo" href="index.html">
+    <span class="logo-mark">R</span>Restr<em>OS</em>
+  </a>
+  <div class="row gap-5 hide-sm">
+    <a class="navlink" href="#product">Product</a>
+    <a class="navlink" href="#surfaces">Surfaces</a>
+    <a class="navlink" href="#pricing">Pricing</a>
+    <a class="navlink" href="styleguide.html">Design system</a>
+  </div>
+  <span class="grow"></span>
+  <button class="btn btn-ghost btn-icon btn-sm" id="themeToggle" aria-label="Switch theme">
+    <svg class="icon"><use href="assets/icons/sprite.svg#i-moon"></use></svg>
+  </button>
+  <a class="btn btn-ghost btn-sm hide-sm" href="login.html">Sign in</a>
+  <a class="btn btn-primary btn-sm" href="signup.html">Start free trial</a>
+</nav>
+
+<main id="main">
+
+  <!-- ── hero ──────────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="container">
+      <div class="stack gap-6" style="max-width:820px">
+        <span class="pill-tag">
+          <span class="dot-live"></span>
+          Now serving 1,240 outlets across India
+        </span>
+        <h1 class="display">The operating system for <em>restaurants</em>.</h1>
+        <p class="lede" style="max-width:60ch">
+          One catalogue, every surface. RestrOS runs the counter, the pass, the table QR and the
+          aggregator feed off a single menu — then tells you what it all earned.
+        </p>
+        <div class="row gap-3 wrap">
+          <a class="btn btn-primary btn-lg" href="app/dashboard.html">
+            Open the live prototype
+            <svg class="icon"><use href="assets/icons/sprite.svg#i-arrow-right"></use></svg>
+          </a>
+          <a class="btn btn-secondary btn-lg" href="app/pos.html">
+            <svg class="icon"><use href="assets/icons/sprite.svg#i-pos"></use></svg>
+            Try the POS
+          </a>
+        </div>
+        <div class="row gap-6 wrap mt-2 t-xs dim">
+          <span class="row gap-2"><svg class="icon icon-sm"><use href="assets/icons/sprite.svg#i-check"></use></svg>14-day trial, no card</span>
+          <span class="row gap-2"><svg class="icon icon-sm"><use href="assets/icons/sprite.svg#i-check"></use></svg>Runs offline on the counter</span>
+          <span class="row gap-2"><svg class="icon icon-sm"><use href="assets/icons/sprite.svg#i-check"></use></svg>GST-ready billing</span>
+        </div>
+      </div>
+
+      <!-- Product frame -->
+      <div class="frame mt-12 reveal">
+        <div class="frame-bar">
+          <span class="frame-dots"><i></i><i></i><i></i></span>
+          <span class="frame-url">app.restros.in/adda-khana/dashboard</span>
+          <span class="badge badge-success badge-dot hide-sm">Live</span>
+        </div>
+        <div style="padding:var(--space-5);background:var(--bg-canvas)">
+          <div class="bento" id="heroMock"></div>
+        </div>
+      </div>
+
+      <!-- Trust bar -->
+      <div class="row gap-8 wrap jc-center mt-12" style="opacity:.55">
+        <span class="display t-lg">TANDOOR JUNCTION</span>
+        <span class="display t-lg">Filter &amp; Co.</span>
+        <span class="display t-lg">COASTAL TABLE</span>
+        <span class="display t-lg">Noodle Theory</span>
+        <span class="display t-lg">BIRYANI BROS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── problem ───────────────────────────────────────────────────────── -->
+  <section class="section" style="background:var(--bg-surface);border-block:1px solid var(--border-subtle)">
+    <div class="container">
+      <div class="grid-2 gap-12" style="align-items:center">
+        <div class="stack gap-4">
+          <span class="eyebrow">The problem</span>
+          <h2>Most restaurants run on four systems that disagree.</h2>
+          <p class="lede">
+            The POS has one menu. The aggregator dashboard has another. The kitchen works off a
+            printed sheet with pen marks on it. By the time the owner reconciles them it is next month.
+          </p>
+          <p class="muted">
+            RestrOS collapses that into one catalogue with one source of truth. Change a price once
+            and it lands on the counter, the pass, the QR menu and Swiggy in the same second.
+          </p>
+        </div>
+        <div class="card card-pad" style="background:var(--bg-inset)">
+          <span class="eyebrow">Straight from a real menu card</span>
+          <div class="stack gap-3 mt-4">
+            <div class="row gap-3">
+              <span class="badge badge-warning">11 items</span>
+              <span class="t-sm">had no price printed on the card at all</span>
+            </div>
+            <div class="row gap-3">
+              <span class="badge badge-info">4 prices</span>
+              <span class="t-sm">existed only as pen marks in the margin</span>
+            </div>
+            <div class="row gap-3">
+              <span class="badge badge-danger">1 dish</span>
+              <span class="t-sm">was sold every day but never made it onto the card</span>
+            </div>
+          </div>
+          <div class="divider" style="margin:var(--space-5) 0"></div>
+          <p class="t-sm muted">
+            RestrOS reads the card, keeps the blanks as a visible “needs price” state, and turns the
+            margin scribbles into suggestions the owner confirms with one tap.
+          </p>
+          <a class="btn btn-secondary btn-sm mt-4" href="app/menu.html">
+            See it in the menu manager
+            <svg class="icon"><use href="assets/icons/sprite.svg#i-arrow-right"></use></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── features ──────────────────────────────────────────────────────── -->
+  <section class="section" id="product">
+    <div class="container">
+      <div class="stack gap-3 mb-10" style="max-width:56ch">
+        <span class="eyebrow">Product</span>
+        <h2>Everything the floor needs, nothing it doesn't.</h2>
+        <p class="lede">Twelve screens that a cashier, a cook, a manager and an owner each open for a different reason.</p>
+      </div>
+
+      <div class="grid-auto gap-4" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+        <a class="feature-card reveal" href="app/pos.html">
+          <span class="feature-ico"><svg class="icon icon-lg"><use href="assets/icons/sprite.svg#i-pos"></use></svg></span>
+          <h3>POS that keeps up with a rush</h3>
+          <p>Search, tap, fire. Variants and modifiers in one sheet, split bills, four payment rails,
+             and a queue that keeps taking orders when the internet drops.</p>
+          <span class="row gap-1 t-xs text-brand fw-semibold">Open POS
+            <svg class="icon icon-sm"><use href="assets/icons/sprite.svg#i-arrow-right"></use></svg></span>
+        </a>
+        <a class="feature-card reveal" href="app/kds.html">
+          <span class="feature-ico"><svg class="icon icon-lg"><use href="assets/icons/sprite.svg#i-kds"></use></svg></span>
+          <h3>A pass that shows its age</h3>
+          <p>Tickets rail by station with live timers. Green under target, amber at 80%, red past it —
+             readable from three metres, operable with gloved hands.</p>
+          <span class="row gap-1 t-xs text-brand fw-semibold">Open KDS
+            <svg class="icon icon-sm"><use href="assets/icons/sprite.svg#i-arrow-right"></use></svg></span>
+        </a>
+        <a class="feature-card reveal" href="app/menu.html">
+          <span class="feature-ico"><svg class="icon icon-lg"><use href="assets/icons/sprite.svg#i-menu-book"></use></svg></span>
+          <h3>One menu, versioned</h3>
+          <p>Publish v15 and every surface updates together. 86 an item and it disappears from the QR
+             menu and the aggregators within seconds.</p>
+          <span class="row gap-1 t-xs text-brand fw-semibold">Open menu
+            <svg class="icon icon-sm"><use href="assets/icons/sprite.svg#i-arrow-right"></use></svg></span>
+        </a>
+        <a class="feature-card reveal" href="app/tables.html">
+          <span class="feature-ico"><svg class="icon icon-lg"><use href="assets/icons/sprite.svg#i-tables"></use></svg></span>
+          <h3>The floor at a glance</h3>
+          <p>Live table map, covers seated, time at table and tonight's book — so the host knows what
+             to promise the couple at the door.</p>
+          <span class="row gap-1 t-xs text-brand fw-semibold">Open floor
+            <svg class="icon icon-sm"><use href="assets/icons/sprite.svg#i-arrow-right"></use></svg></span>
+        </a>
+        <a class="feature-card reveal" href="app/inventory.html">
+          <span class="feature-ico"><svg class="icon icon-lg"><use href="assets/icons/sprite.svg#i-inventory"></use></svg></span>
+          <h3>Stock that explains itself</h3>
+          <p>Recipes tie ingredients to dishes, so an empty bin is the reason a dish is 86'd — and
+             tomorrow's purchase order drafts itself.</p>
+          <span class="row gap-1 t-xs text-brand fw-semibold">Open inventory
+            <svg class="icon icon-sm"><use href="assets/icons/sprite.svg#i-arrow-right"></use></svg></span>
+        </a>
+        <a class="feature-card reveal" href="app/reports.html">
+          <span class="feature-ico"><svg class="icon icon-lg"><use href="assets/icons/sprite.svg#i-reports"></use></svg></span>
+          <h3>Reports an owner actually reads</h3>
+          <p>Channel margin after commission, dish-level food cost, best day of the week, and a
+             GSTR-1 export that reconciles.</p>
+          <span class="row gap-1 t-xs text-brand fw-semibold">Open reports
+            <svg class="icon icon-sm"><use href="assets/icons/sprite.svg#i-arrow-right"></use></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── surfaces ──────────────────────────────────────────────────────── -->
+  <section class="section" id="surfaces" style="background:var(--bg-surface);border-block:1px solid var(--border-subtle)">
+    <div class="container">
+      <div class="stack gap-3 mb-10" style="max-width:56ch">
+        <span class="eyebrow">One catalogue, many faces</span>
+        <h2>The same menu.json powers all of it.</h2>
+        <p class="lede">Counter, pass, guest phone, aggregator, printed card. Write once, render everywhere.</p>
+      </div>
+      <div class="bento">
+        <div class="col-6 card card-pad stack gap-4">
+          <span class="badge badge-brand">Operator</span>
+          <h3>Console</h3>
+          <p class="muted t-sm">Dense, neutral, keyboard-first. Deliberately un-branded so staff moving
+             between outlets keep their muscle memory.</p>
+          <div class="row gap-2 wrap">
+            <a class="btn btn-secondary btn-sm" href="app/dashboard.html">Dashboard</a>
+            <a class="btn btn-secondary btn-sm" href="app/orders.html">Orders</a>
+            <a class="btn btn-secondary btn-sm" href="app/staff.html">Roles</a>
+          </div>
+        </div>
+        <div class="col-6 card card-pad stack gap-4">
+          <span class="badge badge-accent">Guest</span>
+          <h3>QR menu</h3>
+          <p class="muted t-sm">Phone-first, brand-coloured, no app install. Unpriced items are simply
+             never shown — a blank price is the restaurant's problem, not the guest's.</p>
+          <div class="row gap-2 wrap">
+            <a class="btn btn-secondary btn-sm" href="guest/menu.html">Open guest menu</a>
+          </div>
+        </div>
+        <div class="col-4 card card-pad stack gap-3">
+          <span class="feature-ico"><svg class="icon"><use href="assets/icons/sprite.svg#i-offline"></use></svg></span>
+          <h4>Offline-first counter</h4>
+          <p class="t-sm muted">Orders queue in IndexedDB and reconcile on reconnect. Kolkata monsoon
+             takes the fibre down; service does not stop.</p>
+        </div>
+        <div class="col-4 card card-pad stack gap-3">
+          <span class="feature-ico"><svg class="icon"><use href="assets/icons/sprite.svg#i-building"></use></svg></span>
+          <h4>Multi-outlet, multi-tenant</h4>
+          <p class="t-sm muted">Row-level security per tenant, outlet-scoped roles, and a platform
+             console the tenants never see.</p>
+        </div>
+        <div class="col-4 card card-pad stack gap-3">
+          <span class="feature-ico"><svg class="icon"><use href="assets/icons/sprite.svg#i-bike"></use></svg></span>
+          <h4>Aggregators, honestly</h4>
+          <p class="t-sm muted">Swiggy and Zomato orders land in the same queue — with their 21–22%
+             commission shown on every line.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── pricing ───────────────────────────────────────────────────────── -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="stack gap-3 mb-10 center" style="max-width:52ch;margin-inline:auto">
+        <span class="eyebrow">Pricing</span>
+        <h2>Priced per outlet, not per order.</h2>
+        <p class="lede" style="margin-inline:auto">No revenue share. No per-transaction cut. The busier you get, the cheaper we look.</p>
+      </div>
+      <div class="grid-auto gap-4" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr))" id="pricingGrid"></div>
+      <p class="center t-xs dim mt-6">All prices exclude 18% GST. Annual billing saves two months.</p>
+    </div>
+  </section>
+
+  <!-- ── cta ───────────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="card card-pad center stack gap-5" style="padding:clamp(var(--space-10),6vw,var(--space-20));
+           background:linear-gradient(150deg,var(--brand-soft),transparent 55%,var(--accent-soft))">
+        <h2 style="max-width:20ch;margin-inline:auto">Open the prototype and run a service.</h2>
+        <p class="lede center" style="margin-inline:auto">
+          Every screen is wired to real demo data transcribed from an actual Kolkata menu card.
+        </p>
+        <div class="row gap-3 jc-center wrap">
+          <a class="btn btn-primary btn-lg" href="app/dashboard.html">Open the console</a>
+          <a class="btn btn-secondary btn-lg" href="guest/menu.html">Scan the guest menu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="container">
+    <div class="grid-auto gap-8" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+      <div class="stack gap-3">
+        <a class="logo" href="index.html"><span class="logo-mark">R</span>Restr<em>OS</em></a>
+        <p class="t-sm dim" style="max-width:32ch">The operating system for restaurants. Built in Kolkata,
+          for kitchens everywhere.</p>
+      </div>
+      <div class="stack gap-2">
+        <b class="t-sm">Product</b>
+        <a class="t-sm dim" href="app/dashboard.html">Console</a>
+        <a class="t-sm dim" href="app/pos.html">POS</a>
+        <a class="t-sm dim" href="app/kds.html">Kitchen display</a>
+        <a class="t-sm dim" href="guest/menu.html">Guest QR menu</a>
+      </div>
+      <div class="stack gap-2">
+        <b class="t-sm">Platform</b>
+        <a class="t-sm dim" href="app/platform.html">Platform console</a>
+        <a class="t-sm dim" href="app/billing.html">Billing</a>
+        <a class="t-sm dim" href="app/staff.html">Roles &amp; permissions</a>
+      </div>
+      <div class="stack gap-2">
+        <b class="t-sm">Build</b>
+        <a class="t-sm dim" href="styleguide.html">Design system</a>
+        <a class="t-sm dim" href="../docs/ARCHITECTURE.md">Architecture</a>
+        <a class="t-sm dim" href="../docs/PLAN.md">Delivery plan</a>
+        <a class="t-sm dim" href="../README.md">Read me</a>
+      </div>
+    </div>
+    <div class="divider" style="margin:var(--space-8) 0 var(--space-5)"></div>
+    <div class="row between wrap gap-4">
+      <span class="t-xs faint">© 2026 RestrOS. Prototype — not a production system.</span>
+      <span class="t-xs faint">Menu data transcribed from Cafe Adda Khana, Kolkata.</span>
+    </div>
+  </div>
+</footer>
+
+<script type="module">
+  import { $, esc, icon, money, loadAll, ready, theme, toast } from './assets/js/core.js';
+  import { sparkline } from './assets/js/charts.js';
+
+  ready(async () => {
+    const [T, A] = await loadAll('tenants', 'analytics');
+
+    // Pricing grid, read from the same plan list the billing screen uses.
+    $('#pricingGrid').innerHTML = T.plans.map((p) => `
+      <div class="price-card reveal" data-popular="${!!p.popular}">
+        <div class="stack gap-1">
+          <div class="row gap-2">
+            <b class="t-md">${esc(p.name)}</b>
+            ${p.popular ? '<span class="badge badge-accent">Most popular</span>' : ''}
+          </div>
+          <div class="row ai-baseline gap-1">
+            <span class="price-amount">${p.price == null ? 'Custom' : money(p.price)}</span>
+            ${p.price != null ? '<span class="t-xs dim">/outlet/mo</span>' : ''}
+          </div>
+          <span class="t-xs dim">${p.outlets ? `up to ${p.outlets} outlets` : 'unlimited outlets'} ·
+            ${p.seats ? `${p.seats} staff seats` : 'unlimited seats'}</span>
+        </div>
+        <ul class="price-list">
+          ${p.features.map((f) => `<li>${icon('check', 'icon-sm')}<span>${esc(f)}</span></li>`).join('')}
+        </ul>
+        <a class="btn ${p.popular ? 'btn-primary' : 'btn-secondary'} btn-block"
+           href="${p.price == null ? '#' : 'signup.html'}">
+          ${p.price == null ? 'Talk to sales' : 'Start free trial'}</a>
+      </div>`).join('');
+
+    // Hero mock — a miniature of the real dashboard, built from the real numbers.
+    const t = A.today;
+    const tile = (label, value, delta, series) => `
+      <div class="col-3 stat">
+        <div class="stat-label">${esc(label)}</div>
+        <div class="stat-value">${esc(value)}</div>
+        <div style="color:var(--brand)">${sparkline(series)}</div>
+        <div class="stat-foot"><span class="delta delta-up">${icon('trending-up', 'icon-sm')}${delta}</span></div>
+      </div>`;
+    $('#heroMock').innerHTML =
+      tile('Net sales', money(t.netSales), '+12.4%', A.trend30d.slice(-14).map((d) => d.sales)) +
+      tile('Orders', String(t.orders), '+8.1%', A.hourly.map((h) => h.orders)) +
+      tile('Average bill', money(t.aov), '+3.9%', A.trend30d.slice(-14).map((d) => d.aov)) +
+      tile('Covers', String(t.covers), '+6.2%', A.trend30d.slice(-14).map((d) => d.covers));
+
+    const btn = $('#themeToggle');
+    const sync = () => {
+      const m = theme.get();
+      btn.innerHTML = icon(m === 'dark' ? 'moon' : m === 'light' ? 'sun' : 'monitor');
+    };
+    sync();
+    btn.addEventListener('click', () => { theme.cycle(); sync(); });
+  });
+</script>
+</body>
+</html>

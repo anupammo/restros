@@ -1,0 +1,40 @@
+{
+  "meta": { "tenant": "t_adda", "outlet": "out_adda_main", "description": "Floor plan for the table map screen. Coordinates are on a 100x100 grid so the layout scales to any container." },
+  "outlets": [
+    { "id": "out_adda_main", "name": "Adda Khana - Shyambazar", "address": "12A, Bidhan Sarani, Shyambazar, Kolkata 700004", "phone": "+91 98300 11224", "timezone": "Asia/Kolkata", "gstin": "19ABCDE1234F1Z5", "openHours": "11:00 - 23:00", "seats": 48, "isDefault": true },
+    { "id": "out_adda_salt", "name": "Adda Khana - Salt Lake", "address": "CF Block, Sector 1, Salt Lake, Kolkata 700064", "phone": "+91 98300 11225", "timezone": "Asia/Kolkata", "gstin": "19ABCDE1234F1Z5", "openHours": "12:00 - 23:30", "seats": 36, "isDefault": false }
+  ],
+  "zones": [
+    { "id": "z_ground", "name": "Ground Floor", "tables": 10 },
+    { "id": "z_mezz", "name": "Mezzanine", "tables": 6 },
+    { "id": "z_terrace", "name": "Terrace Adda", "tables": 5 }
+  ],
+  "tables": [
+    { "id": "T1", "zone": "z_ground", "seats": 2, "shape": "round", "x": 12, "y": 16, "status": "occupied", "orderId": "ORD-2451", "guests": 2, "seatedAt": "2026-08-27T19:12:00+05:30", "server": "u_riya", "amount": 340 },
+    { "id": "T2", "zone": "z_ground", "seats": 4, "shape": "square", "x": 32, "y": 16, "status": "occupied", "orderId": "ORD-2453", "guests": 4, "seatedAt": "2026-08-27T19:26:00+05:30", "server": "u_riya", "amount": 720 },
+    { "id": "T3", "zone": "z_ground", "seats": 4, "shape": "square", "x": 52, "y": 16, "status": "available" },
+    { "id": "T4", "zone": "z_ground", "seats": 6, "shape": "rect", "x": 76, "y": 16, "status": "billed", "orderId": "ORD-2448", "guests": 5, "seatedAt": "2026-08-27T18:40:00+05:30", "server": "u_deb", "amount": 1265 },
+    { "id": "T5", "zone": "z_ground", "seats": 2, "shape": "round", "x": 12, "y": 40, "status": "available" },
+    { "id": "T6", "zone": "z_ground", "seats": 4, "shape": "square", "x": 32, "y": 40, "status": "occupied", "orderId": "ORD-2455", "guests": 3, "seatedAt": "2026-08-27T19:44:00+05:30", "server": "u_deb", "amount": 410 },
+    { "id": "T7", "zone": "z_ground", "seats": 4, "shape": "square", "x": 52, "y": 40, "status": "dirty" },
+    { "id": "T8", "zone": "z_ground", "seats": 6, "shape": "rect", "x": 76, "y": 40, "status": "reserved", "reservedFor": "Sengupta (7 pax)", "reservedAt": "2026-08-27T20:30:00+05:30" },
+    { "id": "T9", "zone": "z_ground", "seats": 2, "shape": "round", "x": 12, "y": 64, "status": "available" },
+    { "id": "T10", "zone": "z_ground", "seats": 8, "shape": "rect", "x": 44, "y": 66, "status": "occupied", "orderId": "ORD-2456", "guests": 7, "seatedAt": "2026-08-27T19:50:00+05:30", "server": "u_riya", "amount": 1580 },
+    { "id": "M1", "zone": "z_mezz", "seats": 4, "shape": "square", "x": 18, "y": 20, "status": "occupied", "orderId": "ORD-2452", "guests": 4, "seatedAt": "2026-08-27T19:18:00+05:30", "server": "u_ansh", "amount": 890 },
+    { "id": "M2", "zone": "z_mezz", "seats": 4, "shape": "square", "x": 44, "y": 20, "status": "available" },
+    { "id": "M3", "zone": "z_mezz", "seats": 2, "shape": "round", "x": 70, "y": 20, "status": "available" },
+    { "id": "M4", "zone": "z_mezz", "seats": 6, "shape": "rect", "x": 18, "y": 56, "status": "reserved", "reservedFor": "Book club (6 pax)", "reservedAt": "2026-08-27T21:00:00+05:30" },
+    { "id": "M5", "zone": "z_mezz", "seats": 4, "shape": "square", "x": 48, "y": 56, "status": "occupied", "orderId": "ORD-2454", "guests": 2, "seatedAt": "2026-08-27T19:33:00+05:30", "server": "u_ansh", "amount": 265 },
+    { "id": "M6", "zone": "z_mezz", "seats": 2, "shape": "round", "x": 74, "y": 56, "status": "dirty" },
+    { "id": "TR1", "zone": "z_terrace", "seats": 4, "shape": "square", "x": 20, "y": 26, "status": "available" },
+    { "id": "TR2", "zone": "z_terrace", "seats": 4, "shape": "square", "x": 50, "y": 26, "status": "occupied", "orderId": "ORD-2457", "guests": 4, "seatedAt": "2026-08-27T20:01:00+05:30", "server": "u_deb", "amount": 520 },
+    { "id": "TR3", "zone": "z_terrace", "seats": 2, "shape": "round", "x": 78, "y": 26, "status": "available" },
+    { "id": "TR4", "zone": "z_terrace", "seats": 6, "shape": "rect", "x": 30, "y": 66, "status": "available" },
+    { "id": "TR5", "zone": "z_terrace", "seats": 6, "shape": "rect", "x": 68, "y": 66, "status": "blocked", "note": "Monsoon - awning under repair" }
+  ],
+  "reservations": [
+    { "id": "res_1", "name": "Sengupta", "pax": 7, "at": "2026-08-27T20:30:00+05:30", "table": "T8", "phone": "+91 98311 44520", "status": "confirmed", "note": "Birthday - cake at 21:15" },
+    { "id": "res_2", "name": "Book club", "pax": 6, "at": "2026-08-27T21:00:00+05:30", "table": "M4", "phone": "+91 90070 88112", "status": "confirmed", "note": "Quiet corner requested" },
+    { "id": "res_3", "name": "Rahul D.", "pax": 2, "at": "2026-08-27T21:15:00+05:30", "table": null, "phone": "+91 98745 22019", "status": "waitlist", "note": "Terrace if it stops raining" }
+  ]
+}

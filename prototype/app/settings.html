@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings · RestrOS</title>
+<script>try{var t=JSON.parse(localStorage.getItem('restros:theme'));if(t&&t!=='system')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/app.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="app" id="app">
+  <div class="app-col">
+    <main class="app-main" id="main">
+      <div class="page-head">
+        <div>
+          <h2>Settings</h2>
+          <p>Cafe Adda Khana · workspace and outlet configuration</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-secondary btn-sm" id="btnRevert">Discard</button>
+          <button class="btn btn-primary btn-sm" id="btnSave">Save changes</button>
+        </div>
+      </div>
+
+      <div class="tabs mb-6" role="tablist">
+        <button class="tab" role="tab" aria-selected="true">Outlet &amp; brand</button>
+        <button class="tab" role="tab" aria-selected="false">Tax &amp; billing</button>
+        <button class="tab" role="tab" aria-selected="false">Devices</button>
+        <button class="tab" role="tab" aria-selected="false">Integrations</button>
+        <button class="tab" role="tab" aria-selected="false">Data &amp; privacy</button>
+      </div>
+
+      <div class="bento">
+        <!-- Outlet -->
+        <section class="col-8 card">
+          <div class="card-header"><h3>Outlet profile</h3></div>
+          <div class="card-body grid-2 gap-4">
+            <div class="field" style="grid-column:1/-1">
+              <label class="label" for="sName">Outlet name</label>
+              <input class="input" id="sName" value="Adda Khana — Shyambazar">
+            </div>
+            <div class="field" style="grid-column:1/-1">
+              <label class="label" for="sAddr">Address</label>
+              <textarea class="textarea" id="sAddr">12A, Bidhan Sarani, Shyambazar, Kolkata 700004</textarea>
+            </div>
+            <div class="field">
+              <label class="label" for="sPhone">Phone</label>
+              <input class="input" id="sPhone" value="+91 98300 11224">
+            </div>
+            <div class="field">
+              <label class="label" for="sTz">Timezone</label>
+              <select class="select" id="sTz"><option selected>Asia/Kolkata (GMT+5:30)</option><option>Asia/Dubai</option></select>
+            </div>
+            <div class="field">
+              <label class="label" for="sOpen">Opens</label>
+              <input class="input" id="sOpen" type="time" value="11:00">
+            </div>
+            <div class="field">
+              <label class="label" for="sClose">Closes</label>
+              <input class="input" id="sClose" type="time" value="23:00">
+            </div>
+            <div class="field">
+              <label class="label" for="sDay">Business day rolls over at</label>
+              <input class="input" id="sDay" type="time" value="04:00">
+              <span class="hint">Sales after midnight stay on the previous business date.</span>
+            </div>
+            <div class="field">
+              <label class="label" for="sSeats">Seats</label>
+              <input class="input num" id="sSeats" type="number" value="48">
+            </div>
+          </div>
+        </section>
+
+        <!-- Brand -->
+        <section class="col-4 card">
+          <div class="card-header"><h3>Brand</h3>
+            <span class="ml-auto badge badge-brand">Growth</span></div>
+          <div class="card-body stack gap-4">
+            <div class="row gap-3">
+              <span class="avatar avatar-xl" style="background:#0E3B2E;color:#F7F1E4;font-family:var(--font-display)">AK</span>
+              <div class="stack gap-2">
+                <button class="btn btn-secondary btn-sm">Upload logo</button>
+                <span class="t-2xs faint">SVG or PNG, min 512px</span>
+              </div>
+            </div>
+            <div class="field">
+              <span class="label">Primary colour</span>
+              <div class="row gap-2">
+                <span class="swatch" style="background:#0E3B2E;width:40px;height:36px;flex-shrink:0"></span>
+                <input class="input mono" value="#0E3B2E">
+              </div>
+            </div>
+            <div class="field">
+              <span class="label">Accent colour</span>
+              <div class="row gap-2">
+                <span class="swatch" style="background:#D8402A;width:40px;height:36px;flex-shrink:0"></span>
+                <input class="input mono" value="#D8402A">
+              </div>
+            </div>
+            <div class="field">
+              <label class="label" for="sTag">Tagline</label>
+              <input class="input" id="sTag" value="Where every plate comes with a story &amp; a cup of cha">
+            </div>
+            <div class="alert alert-info">
+              <svg class="icon"><use href="../assets/icons/sprite.svg#i-info"></use></svg>
+              <div class="t-xs">Brand colours drive the guest QR menu, printed bills and email receipts —
+              not the operator console, which stays neutral so staff muscle memory transfers between outlets.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tax -->
+        <section class="col-6 card">
+          <div class="card-header"><h3>Tax</h3></div>
+          <div class="card-body stack gap-4">
+            <div class="field">
+              <label class="label" for="sGst">GSTIN</label>
+              <input class="input mono" id="sGst" value="19ABCDE1234F1Z5">
+            </div>
+            <div class="field">
+              <span class="label">Menu prices are</span>
+              <div class="segmented">
+                <button aria-selected="true">Tax-inclusive</button>
+                <button aria-selected="false">Tax-exclusive</button>
+              </div>
+              <span class="hint">The printed card shows tax-inclusive prices, so bills back the GST out of the total.</span>
+            </div>
+            <div class="grid-2 gap-3">
+              <div class="field"><label class="label" for="sCgst">CGST %</label><input class="input num" id="sCgst" value="2.5"></div>
+              <div class="field"><label class="label" for="sSgst">SGST %</label><input class="input num" id="sSgst" value="2.5"></div>
+            </div>
+            <label class="switch"><input type="checkbox" checked><span class="switch-track"></span>
+              <span class="t-sm">Print HSN codes on the bill</span></label>
+            <label class="switch"><input type="checkbox"><span class="switch-track"></span>
+              <span class="t-sm">Collect service charge (5%)</span></label>
+          </div>
+        </section>
+
+        <!-- Devices -->
+        <section class="col-6 card">
+          <div class="card-header"><h3>Printers &amp; devices</h3>
+            <button class="btn btn-ghost btn-sm ml-auto">Add device</button></div>
+          <div>
+            <div class="row gap-3" style="padding:var(--space-3) var(--space-4);border-bottom:1px solid var(--border-subtle)">
+              <svg class="icon"><use href="../assets/icons/sprite.svg#i-printer"></use></svg>
+              <span class="stack grow" style="gap:0"><b class="t-sm">Counter — bill printer</b>
+                <span class="t-2xs faint mono">EPSON TM-T82 · 192.168.0.41 · 80mm</span></span>
+              <span class="badge badge-success badge-dot">Online</span>
+            </div>
+            <div class="row gap-3" style="padding:var(--space-3) var(--space-4);border-bottom:1px solid var(--border-subtle)">
+              <svg class="icon"><use href="../assets/icons/sprite.svg#i-printer"></use></svg>
+              <span class="stack grow" style="gap:0"><b class="t-sm">Kitchen — KOT (wok + fryer)</b>
+                <span class="t-2xs faint mono">EPSON TM-T82 · 192.168.0.42 · 80mm</span></span>
+              <span class="badge badge-success badge-dot">Online</span>
+            </div>
+            <div class="row gap-3" style="padding:var(--space-3) var(--space-4);border-bottom:1px solid var(--border-subtle)">
+              <svg class="icon"><use href="../assets/icons/sprite.svg#i-printer"></use></svg>
+              <span class="stack grow" style="gap:0"><b class="t-sm">Tandoor / Moghlai — KOT</b>
+                <span class="t-2xs faint mono">Rugtek RP80 · 192.168.0.43 · 80mm</span></span>
+              <span class="badge badge-warning badge-dot">Paper low</span>
+            </div>
+            <div class="row gap-3" style="padding:var(--space-3) var(--space-4)">
+              <svg class="icon"><use href="../assets/icons/sprite.svg#i-monitor"></use></svg>
+              <span class="stack grow" style="gap:0"><b class="t-sm">Kitchen display — pass</b>
+                <span class="t-2xs faint mono">Android 14 · 24" · last seen 20:12</span></span>
+              <span class="badge badge-success badge-dot">Online</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Integrations -->
+        <section class="col-12 card">
+          <div class="card-header"><h3>Integrations</h3>
+            <span class="ml-auto t-xs dim">3 of 8 connected</span></div>
+          <div class="card-body grid-auto gap-4">
+            <div class="card card-flat card-pad stack gap-3">
+              <div class="row gap-3"><span class="feature-ico"><svg class="icon"><use href="../assets/icons/sprite.svg#i-bike"></use></svg></span>
+                <span class="stack" style="gap:0"><b class="t-sm">Swiggy</b><span class="t-2xs faint">Menu + order sync</span></span>
+                <span class="badge badge-success ml-auto">Connected</span></div>
+              <p class="t-xs muted">Menu pushes on publish. Orders land in the POS and the KDS with a 22% commission line.</p>
+            </div>
+            <div class="card card-flat card-pad stack gap-3">
+              <div class="row gap-3"><span class="feature-ico"><svg class="icon"><use href="../assets/icons/sprite.svg#i-bike"></use></svg></span>
+                <span class="stack" style="gap:0"><b class="t-sm">Zomato</b><span class="t-2xs faint">Menu + order sync</span></span>
+                <span class="badge badge-success ml-auto">Connected</span></div>
+              <p class="t-xs muted">Same pipeline as Swiggy. Item availability mirrors the 86 state within 30 seconds.</p>
+            </div>
+            <div class="card card-flat card-pad stack gap-3">
+              <div class="row gap-3"><span class="feature-ico"><svg class="icon"><use href="../assets/icons/sprite.svg#i-upi"></use></svg></span>
+                <span class="stack" style="gap:0"><b class="t-sm">Razorpay</b><span class="t-2xs faint">UPI &amp; cards</span></span>
+                <span class="badge badge-success ml-auto">Connected</span></div>
+              <p class="t-xs muted">Dynamic UPI QR per bill, settlement reconciliation into the day-end report.</p>
+            </div>
+            <div class="card card-flat card-pad stack gap-3">
+              <div class="row gap-3"><span class="feature-ico"><svg class="icon"><use href="../assets/icons/sprite.svg#i-chat"></use></svg></span>
+                <span class="stack" style="gap:0"><b class="t-sm">WhatsApp Business</b><span class="t-2xs faint">Receipts &amp; campaigns</span></span>
+                <button class="btn btn-secondary btn-sm ml-auto">Connect</button></div>
+              <p class="t-xs muted">Send the bill and loyalty balance to the guest's phone instead of printing.</p>
+            </div>
+            <div class="card card-flat card-pad stack gap-3">
+              <div class="row gap-3"><span class="feature-ico"><svg class="icon"><use href="../assets/icons/sprite.svg#i-database"></use></svg></span>
+                <span class="stack" style="gap:0"><b class="t-sm">Tally / Zoho Books</b><span class="t-2xs faint">Accounting export</span></span>
+                <button class="btn btn-secondary btn-sm ml-auto">Connect</button></div>
+              <p class="t-xs muted">Nightly journal export of sales, tax and settlement lines.</p>
+            </div>
+            <div class="card card-flat card-pad stack gap-3">
+              <div class="row gap-3"><span class="feature-ico"><svg class="icon"><use href="../assets/icons/sprite.svg#i-code"></use></svg></span>
+                <span class="stack" style="gap:0"><b class="t-sm">Webhooks &amp; API</b><span class="t-2xs faint">Scale plan</span></span>
+                <span class="badge badge-warning ml-auto">Upgrade</span></div>
+              <p class="t-xs muted">Signed webhooks for order lifecycle events and a scoped REST + tRPC API.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Data -->
+        <section class="col-12 card">
+          <div class="card-header"><h3>Data &amp; privacy</h3></div>
+          <div class="card-body grid-2 gap-6">
+            <div class="stack gap-4">
+              <label class="switch"><input type="checkbox" checked><span class="switch-track"></span>
+                <span class="t-sm">Collect guest phone numbers at billing</span></label>
+              <label class="switch"><input type="checkbox" checked><span class="switch-track"></span>
+                <span class="t-sm">Ask for marketing consent before adding to campaigns</span></label>
+              <label class="switch"><input type="checkbox"><span class="switch-track"></span>
+                <span class="t-sm">Share anonymised benchmarks with RestrOS</span></label>
+              <div class="field">
+                <label class="label" for="sRetain">Guest data retention</label>
+                <select class="select" id="sRetain">
+                  <option>24 months after last visit</option>
+                  <option selected>36 months after last visit</option>
+                  <option>Until the guest asks for deletion</option>
+                </select>
+              </div>
+            </div>
+            <div class="stack gap-3">
+              <div class="alert">
+                <svg class="icon"><use href="../assets/icons/sprite.svg#i-shield"></use></svg>
+                <div><strong>Your data belongs to you</strong>
+                <span class="t-xs">Export everything as JSON or CSV at any time. Deleting the workspace erases
+                tenant rows within 30 days; encrypted backups age out within 90.</span></div>
+              </div>
+              <div class="row gap-2">
+                <button class="btn btn-secondary btn-sm">Export all data</button>
+                <button class="btn btn-secondary btn-sm">Download DPA</button>
+              </div>
+              <div class="divider"></div>
+              <div class="row between">
+                <div class="stack" style="gap:2px">
+                  <b class="t-sm text-danger">Delete workspace</b>
+                  <span class="t-xs dim">Irreversible. Cancels the subscription immediately.</span>
+                </div>
+                <button class="btn btn-danger btn-sm">Delete…</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script type="module">
+  import { ready, toast, $ } from '../assets/js/core.js';
+  import { initShell } from '../assets/js/shell.js';
+  ready(async () => {
+    await initShell({ page: 'settings', title: 'Settings', crumb: 'Account' });
+    $('#btnSave').addEventListener('click', () => toast('Settings saved for Shyambazar', { type: 'success' }));
+    $('#btnRevert').addEventListener('click', () => toast('Changes discarded', { icon: 'undo' }));
+    document.querySelectorAll('.tab').forEach((t) => t.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach((x) => x.setAttribute('aria-selected', String(x === t)));
+      toast('Tabs scroll the same page in this prototype', { icon: 'info' });
+    }));
+  });
+</script>
+</body>
+</html>

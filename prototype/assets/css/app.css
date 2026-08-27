@@ -1,0 +1,13 @@
+/* ============================================================================
+   RestrOS — stylesheet entry point.
+   One <link> per page; the cascade order below is load-bearing.
+
+   In production these four files are concatenated and minified at build time
+   (see docs/ARCHITECTURE.md § Front-end build). @import is used here so the
+   prototype stays dependency-free and every layer remains separately readable.
+   ========================================================================== */
+@import url('tokens.css');      /* layer 1-3: colour, type, space, motion   */
+@import url('base.css');        /* reset, element defaults, utilities        */
+@import url('components.css');  /* the pattern library                       */
+@import url('shell.css');       /* console chrome: sidebar, topbar, main     */
+@import url('pages.css');       /* screens with a shape of their own         */

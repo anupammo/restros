@@ -1,0 +1,637 @@
+{
+  "meta": {
+    "tenant": "t_adda",
+    "outlet": "out_adda_main",
+    "asOf": "2026-08-27T20:12:00+05:30",
+    "currency": "INR"
+  },
+  "today": {
+    "netSales": 30190,
+    "grossSales": 36035,
+    "orders": 92,
+    "covers": 172,
+    "aov": 397,
+    "discounts": 432,
+    "gst": 1716,
+    "commission": 931,
+    "voids": 4,
+    "avgPrepMins": 15.94,
+    "tableTurnMins": 47,
+    "repeatGuestPct": 38,
+    "deltas": {
+      "netSales": 12.4,
+      "orders": 8.1,
+      "aov": 3.9,
+      "covers": 6.2,
+      "avgPrepMins": -4.5
+    }
+  },
+  "hourly": [
+    {
+      "hour": 11,
+      "orders": 2,
+      "sales": 1115
+    },
+    {
+      "hour": 12,
+      "orders": 8,
+      "sales": 2191
+    },
+    {
+      "hour": 13,
+      "orders": 10,
+      "sales": 3310
+    },
+    {
+      "hour": 14,
+      "orders": 5,
+      "sales": 2798
+    },
+    {
+      "hour": 15,
+      "orders": 4,
+      "sales": 1172
+    },
+    {
+      "hour": 16,
+      "orders": 4,
+      "sales": 2380
+    },
+    {
+      "hour": 17,
+      "orders": 9,
+      "sales": 4760
+    },
+    {
+      "hour": 18,
+      "orders": 13,
+      "sales": 5200
+    },
+    {
+      "hour": 19,
+      "orders": 27,
+      "sales": 10539
+    },
+    {
+      "hour": 20,
+      "orders": 10,
+      "sales": 2570
+    }
+  ],
+  "trend30d": [
+    {
+      "date": "2026-07-29",
+      "dow": 3,
+      "sales": 35381,
+      "orders": 85,
+      "covers": 167,
+      "aov": 416
+    },
+    {
+      "date": "2026-07-30",
+      "dow": 4,
+      "sales": 37232,
+      "orders": 92,
+      "covers": 198,
+      "aov": 405
+    },
+    {
+      "date": "2026-07-31",
+      "dow": 5,
+      "sales": 38816,
+      "orders": 109,
+      "covers": 189,
+      "aov": 356
+    },
+    {
+      "date": "2026-08-01",
+      "dow": 6,
+      "sales": 46142,
+      "orders": 132,
+      "covers": 205,
+      "aov": 350
+    },
+    {
+      "date": "2026-08-02",
+      "dow": 0,
+      "sales": 45516,
+      "orders": 114,
+      "covers": 220,
+      "aov": 399
+    },
+    {
+      "date": "2026-08-03",
+      "dow": 1,
+      "sales": 32232,
+      "orders": 89,
+      "covers": 151,
+      "aov": 362
+    },
+    {
+      "date": "2026-08-04",
+      "dow": 2,
+      "sales": 36460,
+      "orders": 94,
+      "covers": 170,
+      "aov": 388
+    },
+    {
+      "date": "2026-08-05",
+      "dow": 3,
+      "sales": 38648,
+      "orders": 93,
+      "covers": 191,
+      "aov": 416
+    },
+    {
+      "date": "2026-08-06",
+      "dow": 4,
+      "sales": 37326,
+      "orders": 98,
+      "covers": 184,
+      "aov": 381
+    },
+    {
+      "date": "2026-08-07",
+      "dow": 5,
+      "sales": 50450,
+      "orders": 148,
+      "covers": 251,
+      "aov": 341
+    },
+    {
+      "date": "2026-08-08",
+      "dow": 6,
+      "sales": 43665,
+      "orders": 108,
+      "covers": 215,
+      "aov": 404
+    },
+    {
+      "date": "2026-08-09",
+      "dow": 0,
+      "sales": 40380,
+      "orders": 98,
+      "covers": 202,
+      "aov": 412
+    },
+    {
+      "date": "2026-08-10",
+      "dow": 1,
+      "sales": 31644,
+      "orders": 90,
+      "covers": 154,
+      "aov": 352
+    },
+    {
+      "date": "2026-08-11",
+      "dow": 2,
+      "sales": 33294,
+      "orders": 98,
+      "covers": 157,
+      "aov": 340
+    },
+    {
+      "date": "2026-08-12",
+      "dow": 3,
+      "sales": 37910,
+      "orders": 110,
+      "covers": 189,
+      "aov": 345
+    },
+    {
+      "date": "2026-08-13",
+      "dow": 4,
+      "sales": 33900,
+      "orders": 91,
+      "covers": 177,
+      "aov": 373
+    },
+    {
+      "date": "2026-08-14",
+      "dow": 5,
+      "sales": 48471,
+      "orders": 136,
+      "covers": 224,
+      "aov": 356
+    },
+    {
+      "date": "2026-08-15",
+      "dow": 6,
+      "sales": 49927,
+      "orders": 119,
+      "covers": 233,
+      "aov": 420
+    },
+    {
+      "date": "2026-08-16",
+      "dow": 0,
+      "sales": 46609,
+      "orders": 133,
+      "covers": 243,
+      "aov": 350
+    },
+    {
+      "date": "2026-08-17",
+      "dow": 1,
+      "sales": 35950,
+      "orders": 87,
+      "covers": 163,
+      "aov": 413
+    },
+    {
+      "date": "2026-08-18",
+      "dow": 2,
+      "sales": 40664,
+      "orders": 103,
+      "covers": 204,
+      "aov": 395
+    },
+    {
+      "date": "2026-08-19",
+      "dow": 3,
+      "sales": 34983,
+      "orders": 102,
+      "covers": 158,
+      "aov": 343
+    },
+    {
+      "date": "2026-08-20",
+      "dow": 4,
+      "sales": 36884,
+      "orders": 99,
+      "covers": 179,
+      "aov": 373
+    },
+    {
+      "date": "2026-08-21",
+      "dow": 5,
+      "sales": 49005,
+      "orders": 122,
+      "covers": 231,
+      "aov": 402
+    },
+    {
+      "date": "2026-08-22",
+      "dow": 6,
+      "sales": 48734,
+      "orders": 141,
+      "covers": 254,
+      "aov": 346
+    },
+    {
+      "date": "2026-08-23",
+      "dow": 0,
+      "sales": 46399,
+      "orders": 117,
+      "covers": 223,
+      "aov": 397
+    },
+    {
+      "date": "2026-08-24",
+      "dow": 1,
+      "sales": 36759,
+      "orders": 106,
+      "covers": 192,
+      "aov": 347
+    },
+    {
+      "date": "2026-08-25",
+      "dow": 2,
+      "sales": 35658,
+      "orders": 96,
+      "covers": 175,
+      "aov": 371
+    },
+    {
+      "date": "2026-08-26",
+      "dow": 3,
+      "sales": 34843,
+      "orders": 88,
+      "covers": 167,
+      "aov": 396
+    },
+    {
+      "date": "2026-08-27",
+      "dow": 4,
+      "sales": 34742,
+      "orders": 93,
+      "covers": 165,
+      "aov": 374
+    }
+  ],
+  "windowCompare": {
+    "current": 613528,
+    "previous": 585096,
+    "deltaPct": 4.86
+  },
+  "topItems": [
+    {
+      "itemId": "itm_mog_chicken",
+      "name": "Chicken Moghlai",
+      "qty": 26,
+      "sales": 3380,
+      "cat": "Moghlai"
+    },
+    {
+      "itemId": "itm_dry_chilli_chicken",
+      "name": "Dry Chilli Chicken",
+      "qty": 14,
+      "sales": 2100,
+      "cat": "Starters"
+    },
+    {
+      "itemId": "itm_chilli_chicken",
+      "name": "Chilli Chicken",
+      "qty": 12,
+      "sales": 1680,
+      "cat": "Chicken · Gravy"
+    },
+    {
+      "itemId": "itm_baby_corn",
+      "name": "Crispy Chilli Baby Corn",
+      "qty": 14,
+      "sales": 1400,
+      "cat": "Starters"
+    },
+    {
+      "itemId": "itm_fr_mix",
+      "name": "Fried Rice - Mix",
+      "qty": 11,
+      "sales": 1320,
+      "cat": "Fried Rice"
+    },
+    {
+      "itemId": "itm_roll_chicken",
+      "name": "Chicken Roll",
+      "qty": 16,
+      "sales": 1210,
+      "cat": "Rolls"
+    },
+    {
+      "itemId": "itm_fr_hongkong",
+      "name": "Fried Rice - Hong Kong",
+      "qty": 8,
+      "sales": 1120,
+      "cat": "Fried Rice"
+    },
+    {
+      "itemId": "itm_bir_special",
+      "name": "Special Chicken Biriyani",
+      "qty": 7,
+      "sales": 1050,
+      "cat": "Biriyani"
+    },
+    {
+      "itemId": "itm_fr_chicken",
+      "name": "Fried Rice - Chicken",
+      "qty": 9,
+      "sales": 900,
+      "cat": "Fried Rice"
+    },
+    {
+      "itemId": "itm_mog_special",
+      "name": "Special Moghlai",
+      "qty": 6,
+      "sales": 900,
+      "cat": "Moghlai"
+    },
+    {
+      "itemId": "itm_bir_chicken",
+      "name": "Chicken Biriyani",
+      "qty": 8,
+      "sales": 880,
+      "cat": "Biriyani"
+    },
+    {
+      "itemId": "itm_hn_mix",
+      "name": "Hakka Noodles - Mix",
+      "qty": 8,
+      "sales": 880,
+      "cat": "Hakka Noodles"
+    }
+  ],
+  "slowMovers": [
+    {
+      "itemId": "itm_salad_cucumber",
+      "name": "Cucumber Salad",
+      "qty": 1,
+      "sales": 40,
+      "cat": "Salad"
+    },
+    {
+      "itemId": "itm_fr_manchurian",
+      "name": "Fried Rice - Manchurian",
+      "qty": 1,
+      "sales": 130,
+      "cat": "Fried Rice"
+    },
+    {
+      "itemId": "itm_roasted_chilli_chicken",
+      "name": "Roasted Chilli Chicken",
+      "qty": 1,
+      "sales": 160,
+      "cat": "Chicken · Gravy"
+    },
+    {
+      "itemId": "itm_fr_singapore",
+      "name": "Fried Rice - Singapore",
+      "qty": 1,
+      "sales": 130,
+      "cat": "Fried Rice"
+    },
+    {
+      "itemId": "itm_hn_egg",
+      "name": "Hakka Noodles - Egg",
+      "qty": 2,
+      "sales": 140,
+      "cat": "Hakka Noodles"
+    },
+    {
+      "itemId": "itm_chicken_satay",
+      "name": "Chicken Satay",
+      "qty": 2,
+      "sales": 360,
+      "cat": "Chicken · Gravy"
+    }
+  ],
+  "categoryMix": [
+    {
+      "name": "Starters",
+      "sales": 9510
+    },
+    {
+      "name": "Chicken · Gravy",
+      "sales": 5850
+    },
+    {
+      "name": "Fried Rice",
+      "sales": 5020
+    },
+    {
+      "name": "Moghlai",
+      "sales": 4520
+    },
+    {
+      "name": "Hakka Noodles",
+      "sales": 3250
+    },
+    {
+      "name": "Rolls",
+      "sales": 2915
+    },
+    {
+      "name": "Biriyani",
+      "sales": 2380
+    },
+    {
+      "name": "Momo",
+      "sales": 1190
+    },
+    {
+      "name": "Tea & Coffee",
+      "sales": 965
+    },
+    {
+      "name": "Salad",
+      "sales": 290
+    }
+  ],
+  "channelMix": [
+    {
+      "id": "dine_in",
+      "name": "Dine-in",
+      "orders": 51,
+      "sales": 22431,
+      "commission": 0
+    },
+    {
+      "id": "qr",
+      "name": "QR self-order",
+      "orders": 12,
+      "sales": 5014,
+      "commission": 0
+    },
+    {
+      "id": "takeaway",
+      "name": "Takeaway",
+      "orders": 17,
+      "sales": 4678,
+      "commission": 0
+    },
+    {
+      "id": "swiggy",
+      "name": "Swiggy",
+      "orders": 8,
+      "sales": 2622,
+      "commission": 578
+    },
+    {
+      "id": "zomato",
+      "name": "Zomato",
+      "orders": 4,
+      "sales": 1290,
+      "commission": 271
+    }
+  ],
+  "paymentMix": [
+    {
+      "id": "upi",
+      "name": "UPI",
+      "sales": 18383
+    },
+    {
+      "id": "aggregator",
+      "name": "Aggregator payout",
+      "sales": 8056
+    },
+    {
+      "id": "cash",
+      "name": "Cash",
+      "sales": 6696
+    },
+    {
+      "id": "card",
+      "name": "Card",
+      "sales": 2900
+    }
+  ],
+  "prepTimeBuckets": [
+    {
+      "bucket": "0-5 min",
+      "count": 1
+    },
+    {
+      "bucket": "6-10 min",
+      "count": 6
+    },
+    {
+      "bucket": "11-15 min",
+      "count": 38
+    },
+    {
+      "bucket": "16-20 min",
+      "count": 36
+    },
+    {
+      "bucket": "20+ min",
+      "count": 15
+    }
+  ],
+  "staffLeaderboard": [
+    {
+      "userId": "u_riya",
+      "name": "Riya Sen",
+      "covers": 22,
+      "sales": 6480,
+      "avgTicket": 295,
+      "rating": 4.8
+    },
+    {
+      "userId": "u_ansh",
+      "name": "Anshuman Das",
+      "covers": 17,
+      "sales": 4910,
+      "avgTicket": 289,
+      "rating": 4.6
+    },
+    {
+      "userId": "u_deb",
+      "name": "Debjani Roy",
+      "covers": 12,
+      "sales": 3980,
+      "avgTicket": 332,
+      "rating": 4.9
+    }
+  ],
+  "insights": [
+    {
+      "id": "in_1",
+      "tone": "positive",
+      "title": "Cha is your traffic engine",
+      "body": "Tea - Special appears in 31% of dine-in bills and pulls an average basket of ₹268. Bundling it with Chicken Roll (Adda Combo) is converting at 19%.",
+      "action": "Promote Adda Combo on the QR menu"
+    },
+    {
+      "id": "in_2",
+      "tone": "warning",
+      "title": "11 items have no price",
+      "body": "Fish Finger, Fish Fry, Fish Ball, all beverages and ice creams were blank on the printed card. They are hidden from the guest menu until priced.",
+      "action": "Open menu editor"
+    },
+    {
+      "id": "in_3",
+      "tone": "warning",
+      "title": "Aggregator margin is thin",
+      "body": "Swiggy and Zomato take 21-22% commission. Their blended contribution margin is 9 points below dine-in for the same basket.",
+      "action": "Review aggregator pricing"
+    },
+    {
+      "id": "in_4",
+      "tone": "neutral",
+      "title": "Fryer is your bottleneck at 20:00",
+      "body": "Median ticket time on the fryer station peaks at 18 min during the 20:00 rush while the wok sits at 11 min.",
+      "action": "See station load"
+    }
+  ]
+}

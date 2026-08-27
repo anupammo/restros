@@ -1,0 +1,563 @@
+{
+  "meta": {
+    "tenant": "t_adda",
+    "outlet": "out_adda_main",
+    "asOf": "2026-08-27T20:12:00+05:30",
+    "valuationMethod": "weighted-average"
+  },
+  "items": [
+    {
+      "id": "ing_chicken",
+      "name": "Chicken (curry cut)",
+      "unit": "kg",
+      "stock": 42,
+      "par": 30,
+      "supplier": "Haji Meat Supply",
+      "unitCost": 218,
+      "station": "st_wok",
+      "value": 9156,
+      "consumedToday": 22.86,
+      "daysCover": 1.84,
+      "status": "ok",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": 0.55
+    },
+    {
+      "id": "ing_boneless",
+      "name": "Chicken (boneless)",
+      "unit": "kg",
+      "stock": 18,
+      "par": 20,
+      "supplier": "Haji Meat Supply",
+      "unitCost": 296,
+      "station": "st_wok",
+      "value": 5328,
+      "consumedToday": 10.65,
+      "daysCover": 1.69,
+      "status": "low",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": 2.91
+    },
+    {
+      "id": "ing_paneer",
+      "name": "Paneer",
+      "unit": "kg",
+      "stock": 6,
+      "par": 8,
+      "supplier": "Metro Dairy",
+      "unitCost": 340,
+      "station": "st_wok",
+      "value": 2040,
+      "consumedToday": 6.25,
+      "daysCover": 0.96,
+      "status": "low",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": -2.14
+    },
+    {
+      "id": "ing_egg",
+      "name": "Eggs",
+      "unit": "pc",
+      "stock": 210,
+      "par": 180,
+      "supplier": "Local vendor",
+      "unitCost": 7,
+      "station": "st_tandoor",
+      "value": 1470,
+      "consumedToday": 114.03,
+      "daysCover": 1.84,
+      "status": "ok",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": 1.93
+    },
+    {
+      "id": "ing_rice",
+      "name": "Basmati rice",
+      "unit": "kg",
+      "stock": 55,
+      "par": 40,
+      "supplier": "Burrabazar Traders",
+      "unitCost": 118,
+      "station": "st_rice",
+      "value": 6490,
+      "consumedToday": 33.51,
+      "daysCover": 1.64,
+      "status": "ok",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": -2.18
+    },
+    {
+      "id": "ing_noodle",
+      "name": "Hakka noodles",
+      "unit": "kg",
+      "stock": 12,
+      "par": 15,
+      "supplier": "Burrabazar Traders",
+      "unitCost": 96,
+      "station": "st_wok",
+      "value": 1152,
+      "consumedToday": 10.58,
+      "daysCover": 1.13,
+      "status": "low",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": -2.27
+    },
+    {
+      "id": "ing_potato",
+      "name": "Potato",
+      "unit": "kg",
+      "stock": 64,
+      "par": 35,
+      "supplier": "Koley Market",
+      "unitCost": 28,
+      "station": "st_fry",
+      "value": 1792,
+      "consumedToday": 24.73,
+      "daysCover": 2.59,
+      "status": "ok",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": 0.08
+    },
+    {
+      "id": "ing_spiral",
+      "name": "Potato spirals (frozen)",
+      "unit": "pack",
+      "stock": 0,
+      "par": 12,
+      "supplier": "Frozen Foods Co",
+      "unitCost": 145,
+      "station": "st_fry",
+      "value": 0,
+      "consumedToday": 7.32,
+      "daysCover": 0,
+      "status": "out",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": 2.44
+    },
+    {
+      "id": "ing_mushroom",
+      "name": "Button mushroom",
+      "unit": "kg",
+      "stock": 4,
+      "par": 6,
+      "supplier": "Koley Market",
+      "unitCost": 220,
+      "station": "st_wok",
+      "value": 880,
+      "consumedToday": 2.52,
+      "daysCover": 1.59,
+      "status": "low",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": 2.07
+    },
+    {
+      "id": "ing_babycorn",
+      "name": "Baby corn",
+      "unit": "kg",
+      "stock": 7,
+      "par": 6,
+      "supplier": "Koley Market",
+      "unitCost": 180,
+      "station": "st_wok",
+      "value": 1260,
+      "consumedToday": 4.43,
+      "daysCover": 1.58,
+      "status": "ok",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": 1.15
+    },
+    {
+      "id": "ing_onion",
+      "name": "Onion",
+      "unit": "kg",
+      "stock": 88,
+      "par": 50,
+      "supplier": "Koley Market",
+      "unitCost": 34,
+      "station": "st_cold",
+      "value": 2992,
+      "consumedToday": 21.27,
+      "daysCover": 4.14,
+      "status": "ok",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": -1.58
+    },
+    {
+      "id": "ing_cucumber",
+      "name": "Cucumber",
+      "unit": "kg",
+      "stock": 11,
+      "par": 10,
+      "supplier": "Koley Market",
+      "unitCost": 40,
+      "station": "st_cold",
+      "value": 440,
+      "consumedToday": 4.12,
+      "daysCover": 2.67,
+      "status": "ok",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": -0.48
+    },
+    {
+      "id": "ing_maida",
+      "name": "Maida",
+      "unit": "kg",
+      "stock": 34,
+      "par": 25,
+      "supplier": "Burrabazar Traders",
+      "unitCost": 44,
+      "station": "st_tandoor",
+      "value": 1496,
+      "consumedToday": 21.64,
+      "daysCover": 1.57,
+      "status": "ok",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": 2.94
+    },
+    {
+      "id": "ing_oil",
+      "name": "Refined oil",
+      "unit": "litre",
+      "stock": 46,
+      "par": 40,
+      "supplier": "Burrabazar Traders",
+      "unitCost": 132,
+      "station": "st_fry",
+      "value": 6072,
+      "consumedToday": 27.83,
+      "daysCover": 1.65,
+      "status": "ok",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": 2.89
+    },
+    {
+      "id": "ing_soy",
+      "name": "Soy sauce",
+      "unit": "litre",
+      "stock": 9,
+      "par": 6,
+      "supplier": "Sino Foods",
+      "unitCost": 155,
+      "station": "st_wok",
+      "value": 1395,
+      "consumedToday": 5.03,
+      "daysCover": 1.79,
+      "status": "ok",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": -0.55
+    },
+    {
+      "id": "ing_schezwan",
+      "name": "Schezwan paste",
+      "unit": "kg",
+      "stock": 3,
+      "par": 5,
+      "supplier": "Sino Foods",
+      "unitCost": 260,
+      "station": "st_wok",
+      "value": 780,
+      "consumedToday": 3.29,
+      "daysCover": 0.91,
+      "status": "low",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": -0.6
+    },
+    {
+      "id": "ing_tea",
+      "name": "Tea leaves (CTC)",
+      "unit": "kg",
+      "stock": 5,
+      "par": 4,
+      "supplier": "Assam Tea Depot",
+      "unitCost": 420,
+      "station": "st_cha",
+      "value": 2100,
+      "consumedToday": 2.35,
+      "daysCover": 2.13,
+      "status": "ok",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": 2.23
+    },
+    {
+      "id": "ing_milk",
+      "name": "Milk",
+      "unit": "litre",
+      "stock": 28,
+      "par": 30,
+      "supplier": "Metro Dairy",
+      "unitCost": 58,
+      "station": "st_cha",
+      "value": 1624,
+      "consumedToday": 24.42,
+      "daysCover": 1.15,
+      "status": "low",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": -2.97
+    },
+    {
+      "id": "ing_sugar",
+      "name": "Sugar",
+      "unit": "kg",
+      "stock": 19,
+      "par": 15,
+      "supplier": "Burrabazar Traders",
+      "unitCost": 46,
+      "station": "st_cha",
+      "value": 874,
+      "consumedToday": 8.85,
+      "daysCover": 2.15,
+      "status": "ok",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": 2.98
+    },
+    {
+      "id": "ing_coffee",
+      "name": "Coffee powder",
+      "unit": "kg",
+      "stock": 2,
+      "par": 3,
+      "supplier": "Assam Tea Depot",
+      "unitCost": 640,
+      "station": "st_cha",
+      "value": 1280,
+      "consumedToday": 1.37,
+      "daysCover": 1.46,
+      "status": "low",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": -2.06
+    },
+    {
+      "id": "ing_momo_sheet",
+      "name": "Momo wrappers",
+      "unit": "pack",
+      "stock": 22,
+      "par": 20,
+      "supplier": "Tibet Foods",
+      "unitCost": 65,
+      "station": "st_fry",
+      "value": 1430,
+      "consumedToday": 9.48,
+      "daysCover": 2.32,
+      "status": "ok",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": 0.42
+    },
+    {
+      "id": "ing_fish",
+      "name": "Bhetki fillet",
+      "unit": "kg",
+      "stock": 0,
+      "par": 8,
+      "supplier": "Haji Meat Supply",
+      "unitCost": 520,
+      "station": "st_fry",
+      "value": 0,
+      "consumedToday": 4.87,
+      "daysCover": 0,
+      "status": "out",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": -1.81
+    },
+    {
+      "id": "ing_packaging",
+      "name": "Takeaway containers",
+      "unit": "pc",
+      "stock": 340,
+      "par": 400,
+      "supplier": "PackRight",
+      "unitCost": 6,
+      "station": "st_cold",
+      "value": 2040,
+      "consumedToday": 319.32,
+      "daysCover": 1.06,
+      "status": "low",
+      "lastCountedAt": "2026-08-26T23:40:00+05:30",
+      "variancePct": 0.55
+    }
+  ],
+  "recipes": [
+    {
+      "itemId": "itm_chilli_chicken",
+      "yields": 1,
+      "components": [
+        {
+          "id": "ing_boneless",
+          "qty": 0.22
+        },
+        {
+          "id": "ing_onion",
+          "qty": 0.08
+        },
+        {
+          "id": "ing_soy",
+          "qty": 0.02
+        },
+        {
+          "id": "ing_oil",
+          "qty": 0.04
+        }
+      ],
+      "foodCost": 78,
+      "margin": 44.3
+    },
+    {
+      "itemId": "itm_bir_chicken",
+      "yields": 1,
+      "components": [
+        {
+          "id": "ing_rice",
+          "qty": 0.18
+        },
+        {
+          "id": "ing_chicken",
+          "qty": 0.16
+        },
+        {
+          "id": "ing_potato",
+          "qty": 0.12
+        },
+        {
+          "id": "ing_oil",
+          "qty": 0.03
+        }
+      ],
+      "foodCost": 62,
+      "margin": 43.6
+    },
+    {
+      "itemId": "itm_roll_chicken",
+      "yields": 1,
+      "components": [
+        {
+          "id": "ing_maida",
+          "qty": 0.09
+        },
+        {
+          "id": "ing_boneless",
+          "qty": 0.07
+        },
+        {
+          "id": "ing_onion",
+          "qty": 0.03
+        },
+        {
+          "id": "ing_oil",
+          "qty": 0.02
+        }
+      ],
+      "foodCost": 31,
+      "margin": 55.7
+    },
+    {
+      "itemId": "itm_tea_special",
+      "yields": 1,
+      "components": [
+        {
+          "id": "ing_tea",
+          "qty": 0.006
+        },
+        {
+          "id": "ing_milk",
+          "qty": 0.09
+        },
+        {
+          "id": "ing_sugar",
+          "qty": 0.012
+        }
+      ],
+      "foodCost": 8.3,
+      "margin": 44.7
+    },
+    {
+      "itemId": "itm_momo_chicken",
+      "yields": 1,
+      "components": [
+        {
+          "id": "ing_momo_sheet",
+          "qty": 0.12
+        },
+        {
+          "id": "ing_boneless",
+          "qty": 0.08
+        },
+        {
+          "id": "ing_onion",
+          "qty": 0.02
+        }
+      ],
+      "foodCost": 34,
+      "margin": 51.4
+    }
+  ],
+  "purchaseOrders": [
+    {
+      "id": "PO-2026-114",
+      "supplier": "Haji Meat Supply",
+      "status": "draft",
+      "createdAt": "2026-08-27T09:10:00+05:30",
+      "expectedAt": "2026-08-28",
+      "total": 14820,
+      "lines": 3,
+      "note": "Auto-drafted: bhetki out of stock, boneless below par"
+    },
+    {
+      "id": "PO-2026-113",
+      "supplier": "Frozen Foods Co",
+      "status": "sent",
+      "createdAt": "2026-08-26T17:40:00+05:30",
+      "expectedAt": "2026-08-28",
+      "total": 5220,
+      "lines": 1,
+      "note": "Potato spirals - 36 packs"
+    },
+    {
+      "id": "PO-2026-112",
+      "supplier": "Koley Market",
+      "status": "received",
+      "createdAt": "2026-08-26T06:20:00+05:30",
+      "expectedAt": "2026-08-26",
+      "total": 8640,
+      "lines": 6,
+      "note": "Daily vegetables"
+    },
+    {
+      "id": "PO-2026-111",
+      "supplier": "Metro Dairy",
+      "status": "received",
+      "createdAt": "2026-08-25T06:15:00+05:30",
+      "expectedAt": "2026-08-25",
+      "total": 4210,
+      "lines": 2,
+      "note": "Milk + paneer"
+    }
+  ],
+  "wastage": [
+    {
+      "at": "2026-08-27T16:20:00+05:30",
+      "item": "ing_mushroom",
+      "qty": 0.6,
+      "unit": "kg",
+      "reason": "Spoilage",
+      "value": 132,
+      "by": "u_babu"
+    },
+    {
+      "at": "2026-08-27T14:05:00+05:30",
+      "item": "ing_rice",
+      "qty": 1.2,
+      "unit": "kg",
+      "reason": "Burnt batch",
+      "value": 142,
+      "by": "u_montu"
+    },
+    {
+      "at": "2026-08-26T21:50:00+05:30",
+      "item": "ing_milk",
+      "qty": 2,
+      "unit": "litre",
+      "reason": "Curdled",
+      "value": 116,
+      "by": "u_deb"
+    }
+  ]
+}

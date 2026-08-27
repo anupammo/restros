@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cafe Adda Khana — Menu</title>
+<meta name="description" content="Scan, browse and order at Cafe Adda Khana, Kolkata. Powered by RestrOS.">
+<meta name="theme-color" content="#0E3B2E">
+<script>try{var t=JSON.parse(localStorage.getItem('restros:theme'));if(t&&t!=='system')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/app.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
+</head>
+<!--
+  The guest surface. Same menu.json as the POS — one catalogue, many faces.
+  Items with no price never render here: an unpriced item is invisible to
+  guests but loud in the owner's console.
+-->
+<body style="background:var(--bg-canvas)">
+<a class="skip-link" href="#guestMain">Skip to menu</a>
+
+<div class="guest">
+  <header class="guest-hero">
+    <div class="row between mb-6">
+      <span class="badge" style="background:rgba(255,255,255,.14);color:inherit">
+        <svg class="icon icon-sm"><use href="../assets/icons/sprite.svg#i-pin"></use></svg>
+        Table T3 · Shyambazar
+      </span>
+      <button class="btn btn-ghost btn-icon btn-sm" id="guestTheme" aria-label="Switch theme" style="color:inherit">
+        <svg class="icon"><use href="../assets/icons/sprite.svg#i-moon"></use></svg>
+      </button>
+    </div>
+    <div class="t-2xs" style="letter-spacing:var(--tracking-widest);opacity:.75">KOLKATA · EST. ADDA</div>
+    <h1 class="guest-logo mt-2">CAFE ADDA <em>KHANA</em></h1>
+    <p class="mt-3" style="opacity:.85;font-size:var(--text-sm);max-width:36ch">
+      Where every plate comes with a story &amp; a cup of cha
+    </p>
+    <div class="row gap-2 mt-5 wrap">
+      <span class="badge" style="background:rgba(255,255,255,.14);color:inherit">
+        <svg class="icon icon-sm"><use href="../assets/icons/sprite.svg#i-clock"></use></svg>11:00 – 23:00</span>
+      <span class="badge" style="background:rgba(255,255,255,.14);color:inherit">
+        <svg class="icon icon-sm"><use href="../assets/icons/sprite.svg#i-star"></use></svg>4.6 · 812 ratings</span>
+      <span class="badge" style="background:rgba(255,255,255,.14);color:inherit">Pure veg options</span>
+    </div>
+  </header>
+
+  <div class="p-4 stack gap-3" id="comboStrip"></div>
+
+  <div class="guest-nav" id="guestNav" role="tablist" aria-label="Menu sections"></div>
+
+  <div class="row gap-2 p-4 wrap" style="padding-bottom:0">
+    <div class="input-group grow">
+      <svg class="icon"><use href="../assets/icons/sprite.svg#i-search"></use></svg>
+      <input class="input" id="guestSearch" type="search" placeholder="Search the menu…">
+    </div>
+    <div class="segmented" id="guestDiet" role="group" aria-label="Dietary filter">
+      <button data-d="all" aria-selected="true">All</button>
+      <button data-d="veg">Veg</button>
+      <button data-d="nonveg">Non-veg</button>
+    </div>
+  </div>
+
+  <main id="guestMain"></main>
+
+  <footer class="p-6 center stack gap-2" style="border-top:1px solid var(--border-subtle);margin-top:var(--space-8)">
+    <p class="t-xs dim">All prices in ₹ (INR) and inclusive of applicable taxes. Menu subject to availability.</p>
+    <p class="t-2xs faint">Cafe Adda Khana · Kolkata · GSTIN 19ABCDE1234F1Z5</p>
+    <p class="t-2xs faint mt-2">Powered by <b>Restr<span style="color:var(--accent)">OS</span></b></p>
+  </footer>
+</div>
+
+<div class="guest-cart" id="guestCart" data-open="false">
+  <div class="stack" style="gap:0">
+    <b class="t-sm" id="cartCount">0 items</b>
+    <span class="t-2xs" style="opacity:.8" id="cartTotal">₹0</span>
+  </div>
+  <span class="grow"></span>
+  <button class="btn btn-accent btn-pill" id="cartPlace">
+    Place order
+    <svg class="icon"><use href="../assets/icons/sprite.svg#i-arrow-right"></use></svg>
+  </button>
+</div>
+
+<script type="module" src="../assets/js/guest.js"></script>
+</body>
+</html>
