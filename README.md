@@ -162,6 +162,7 @@ in the sprite.
 | [API.md](docs/API.md) | Every endpoint, event and webhook contract |
 | [DESIGN-SYSTEM.md](docs/DESIGN-SYSTEM.md) | Why the interface looks and behaves the way it does |
 | [MENU-REFERENCE.md](docs/MENU-REFERENCE.md) | The source menu, and the questions it left open |
+| [DEPLOYMENT.md](docs/DEPLOYMENT.md) | How to publish the prototype to GitHub Pages, and what to do when it fails |
 
 ---
 
